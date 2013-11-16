@@ -1,0 +1,10 @@
+0x8c010004   #         lw  r1,4(r0)  #r1=56  
+0x8c020004   #  lab1:  lw  r2,4(r0)  #r2=56  
+0x8c03000c   #         lw  r3,c(r0)  #r3=1  
+0            #         nop
+0            #         nop
+0            #         nop
+0x00431020   #         add r2,r2,r3
+0            #         nop
+0x1022fff8   #         beq r1,r2,lab1  
+0x8c02000c   #         lw  r2,c(r0)  

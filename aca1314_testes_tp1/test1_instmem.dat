@@ -1,0 +1,9 @@
+0x8c020008   #         lw  r2,8(r0)  #r2=16  
+0x8c010004   #  lab1:  lw  r1,4(r0)  #r1=56  
+0            #         nop
+0x8c010008   #         lw  r1,8(r0)  #r1=16  
+0            #         nop
+0            #         nop
+0            #         nop
+0x1022fff9   #         beq r1,r2,lab1
+0x8c01000c   #         lw  r1,c(r0)  # not executed
