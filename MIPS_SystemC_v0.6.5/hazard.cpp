@@ -7,8 +7,7 @@
 void hazard::detect_hazard()
 {
 	// control hazards
-	if (BranchTaken.read() == true) {
-		cout << "bla";
+	if (BranchTaken.read() != 0) {
 		enable_pc.write(true);
 		enable_ifid.write(true);
 		reset_ifid.write(true);

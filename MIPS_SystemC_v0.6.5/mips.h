@@ -19,11 +19,12 @@
 #include "hazard.h"
 
 #include "mux.h"
+#include "mux4.h"
 #include "reg.h"
 #include "ext.h"
 #include "shiftl2.h"
 #include "add.h"
-#include "comparator.h"
+#include "branch_taken_calc.h"
 #include "gates.h"
 
 #include "regT.h"
@@ -56,7 +57,7 @@ SC_MODULE(mips) {
    registo           *PCreg;     // PC register
    imem              *instmem;   // instruction memory
    add *add4;                    // adds 4 to PC
-   mux< sc_uint<32> > *mPC;      // selects Next PC from PCbrach and PC + 4
+   mux4< sc_uint<32> > *mPC;      // selects Next PC from PCbrach and PC + 4
 
    //ID
    decode            *dec1;      // decodes instruction
@@ -64,7 +65,7 @@ SC_MODULE(mips) {
    control           *ctrl;      // control
    mux< sc_uint<5> >  *mr;       // selects destination register
    ext *e1;                      // sign extends imm to 32 bits
-   comparator        *comp;      // comparator to compare rs & rt
+   branch_taken_calc *btc;       // branch taken calculator
    shiftl2 *sl2;                 // shift left 2 imm_ext
    add *addbr;                   // adds imm to PC + 4
    orgate *or_reset_ifid, *or_reset_idexe;
@@ -76,7 +77,6 @@ SC_MODULE(mips) {
 
    //MEM
    dmem              *datamem;   // data memory
-   andgate *a1;                  // beq instruction and equal values
 
    //WB
    mux< sc_uint<32> > *m2;       // selects value to write in register (ALUout or MemOut)
@@ -129,7 +129,7 @@ SC_MODULE(mips) {
    sc_signal <bool> RegWrite, RegDst;
    sc_signal <bool> ALUSrc;
    sc_signal < sc_uint<3> > ALUOp;
-   sc_signal <bool> Branch;
+   sc_signal < sc_uint<2> > Branch;
 
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
@@ -179,7 +179,7 @@ SC_MODULE(mips) {
 
    //nonpipelined signals
    sc_signal < sc_uint<32> > BranchTarget; // PC if branch
-   sc_signal < bool > BranchTaken;       // execute branch
+   sc_signal < sc_uint<2> > BranchTaken;  // execute branch
    sc_signal < sc_uint<32> > const4;   // contant 4
    sc_signal < bool > const1;          // contant 4
 

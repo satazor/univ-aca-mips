@@ -22,7 +22,7 @@
  *   	- \c bool \c MemtoReg	- Value to write in register comes from memory
  *   	- \c sc_uint<6> \c ALUOp		- selects ALU operation
  *   	- \c bool \c ALUSrc	- selects ALU second operand
- *   	- \c bool \c Branch	- active if instruction is beq
+ *   	- \c sc_uint<2> \c Branch	- 00 inactive; 01 - beq; 10 - j; 11 -jr
  */
 
 SC_MODULE(control) {
@@ -31,7 +31,7 @@ SC_MODULE(control) {
   sc_in< sc_uint<6> >  funct;
 
   sc_out< bool >  RegDst;        
-  sc_out< bool >  Branch;        
+  sc_out< sc_uint<2> >  Branch;
   sc_out< bool >  MemRead;        
   sc_out< bool >  MemtoReg;        
   sc_out< sc_uint<3> >  ALUOp;        

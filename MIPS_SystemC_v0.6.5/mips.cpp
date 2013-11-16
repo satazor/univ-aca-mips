@@ -33,11 +33,13 @@ void mips::buildIF(void)
       add4->res(PC4);
 
       // Selects Next Program Counter Value
-      mPC = new mux< sc_uint<32> > ("mPC");
+      mPC = new mux4< sc_uint<32> > ("mPC");
    
       mPC->sel(BranchTaken);
       mPC->din0(PC4);
       mPC->din1(BranchTarget);
+      mPC->din2(PC4);
+      mPC->din3(BranchTarget);
       mPC->dout(NPC);
 }
 
@@ -113,19 +115,12 @@ void mips::buildID(void)
       addbr->op2(addr_ext);  
       addbr->res(BranchTarget);
 
-      // Comparator for registers rt & rs
-      comp = new comparator("comp");
-
-      comp->op1(regdata1);  // Value of register rt
-      comp->op2(regdata2);  // Value of register rs
-      comp->res(regdata_equal);
-
-      // Enables Branch
-      a1 = new andgate ("a1");
-
-      a1->din1(Branch);
-      a1->din2(regdata_equal);
-      a1->dout(BranchTaken);
+      // Branch taken resolver
+      btc = new branch_taken_calc("btc");
+      btc->branch(Branch);
+      btc->regdata1(regdata1);
+      btc->regdata2(regdata2);
+      btc->res(BranchTaken);
 }
 
 /**
@@ -319,8 +314,7 @@ mips::~mips(void)
       delete instmem;
       delete add4;
       delete addbr;
-      delete comp;
-      delete a1;
+      delete btc;
       delete mPC;
       delete dec1;
       delete mr;
