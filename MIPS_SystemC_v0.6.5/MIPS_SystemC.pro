@@ -2,7 +2,7 @@ TEMPLATE	= app
 CONFIG		+= qt thread release
 HEADERS		= mips.h\
                   imem.h decode.h regfile.h alu.h dmem.h control.h\
-		  mem32.h mux.h mux4.h reg.h branch_taken_calc.h add.h gates.h ext.h shiftl2.h\
+		  mem32.h mux.h mux4.h reg.h branch_taken_calc.h jump_target_calc.h add.h gates.h ext.h shiftl2.h\
 		  regT.h reg_id_exe.h reg_exe_mem.h reg_mem_wb.h\
 		  hazard.h\
 		  mipsaux.h\
@@ -15,7 +15,7 @@ HEADERS		= mips.h\
 		  GUI/readimem.xpm GUI/readdmem.xpm
 SOURCES		= main.cpp mips.cpp\
                   imem.cpp decode.cpp regfile.cpp alu.cpp dmem.cpp control.cpp\
-		  mem32.cpp reg.cpp branch_taken_calc.cpp add.cpp gates.cpp ext.cpp shiftl2.cpp\
+		  mem32.cpp reg.cpp branch_taken_calc.cpp jump_target_calc.cpp add.cpp gates.cpp ext.cpp shiftl2.cpp\
 		  hazard.cpp\
 		  mipsaux.cpp\
 		  GUI/MIPSctrl.cpp\ 

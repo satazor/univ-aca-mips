@@ -6,7 +6,9 @@
  */
 void control::entry()
 {
-  switch(opcode.read()) {
+  sc_uint<6> opcodeVal = opcode.read();
+
+  switch(opcodeVal) {
     case 0: // R-format
             RegDst.write(1);  
             ALUSrc.write(0);
@@ -29,12 +31,17 @@ void control::entry()
 		}
 	    break;
     case  4: // beq
+	case  2: // j
+	case  8: // jr
             ALUSrc.write(0);
 	    RegWrite.write(0);
 	    MemRead.write(0);
 	    MemWrite.write(0);
-	    Branch.write(1);
-	    ALUOp.write(6);
+
+	    if (opcodeVal == 4) Branch.write(1);       // beq -> 01
+	    else if (opcodeVal == 2) Branch.write(2);  // j -> 10
+	    else if (opcodeVal == 8) Branch.write(3);  // jr -> 11
+
 	    break;
     case 35: // lw
             RegDst.write(0); 

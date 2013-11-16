@@ -29,7 +29,8 @@ SC_MODULE(decode) {
   sc_out< sc_uint<5> >  rs;        
   sc_out< sc_uint<5> >  rt;        
   sc_out< sc_uint<5> >  rd;        
-  sc_out< sc_uint<16> >  imm;        
+  sc_out< sc_uint<16> >  imm;
+  sc_out< sc_uint<26> >  imm_j;
   sc_out< sc_uint<6> > opcode;        
   sc_out< sc_uint<5> > shamt;        
   sc_out< sc_uint<6> > funct;        

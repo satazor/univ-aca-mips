@@ -25,6 +25,7 @@
 #include "shiftl2.h"
 #include "add.h"
 #include "branch_taken_calc.h"
+#include "jump_target_calc.h"
 #include "gates.h"
 
 #include "regT.h"
@@ -57,7 +58,7 @@ SC_MODULE(mips) {
    registo           *PCreg;     // PC register
    imem              *instmem;   // instruction memory
    add *add4;                    // adds 4 to PC
-   mux4< sc_uint<32> > *mPC;      // selects Next PC from PCbrach and PC + 4
+   mux4< sc_uint<32> > *mPC;     // selects Next PC from PCbrach and PC + 4
 
    //ID
    decode            *dec1;      // decodes instruction
@@ -66,6 +67,7 @@ SC_MODULE(mips) {
    mux< sc_uint<5> >  *mr;       // selects destination register
    ext *e1;                      // sign extends imm to 32 bits
    branch_taken_calc *btc;       // branch taken calculator
+   jump_target_calc *jtc;     // branch target calculator
    shiftl2 *sl2;                 // shift left 2 imm_ext
    add *addbr;                   // adds imm to PC + 4
    orgate *or_reset_ifid, *or_reset_idexe;
@@ -106,6 +108,7 @@ SC_MODULE(mips) {
    // instruction fields
    sc_signal < sc_uint<5> > rs, rt, rd;
    sc_signal < sc_uint<16> > imm;
+   sc_signal < sc_uint<26> > imm_j;
    sc_signal < sc_uint<6> > opcode;
    sc_signal < sc_uint<5> > shamt;
    sc_signal < sc_uint<6> > funct;
@@ -180,6 +183,7 @@ SC_MODULE(mips) {
    //nonpipelined signals
    sc_signal < sc_uint<32> > BranchTarget; // PC if branch
    sc_signal < sc_uint<2> > BranchTaken;  // execute branch
+   sc_signal < sc_uint<32> > JumpTarget;
    sc_signal < sc_uint<32> > const4;   // contant 4
    sc_signal < bool > const1;          // contant 4
 

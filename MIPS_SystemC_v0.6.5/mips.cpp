@@ -38,8 +38,8 @@ void mips::buildIF(void)
       mPC->sel(BranchTaken);
       mPC->din0(PC4);
       mPC->din1(BranchTarget);
-      mPC->din2(PC4);
-      mPC->din3(BranchTarget);
+      mPC->din2(JumpTarget);
+      mPC->din3(regdata1);
       mPC->dout(NPC);
 }
 
@@ -55,6 +55,7 @@ void mips::buildID(void)
       dec1->rt(rt);
       dec1->rd(rd);
       dec1->imm(imm);
+      dec1->imm_j(imm_j);
       dec1->opcode(opcode);
       dec1->shamt(shamt);
       dec1->funct(funct);
@@ -121,6 +122,12 @@ void mips::buildID(void)
       btc->regdata1(regdata1);
       btc->regdata2(regdata2);
       btc->res(BranchTaken);
+
+      //>> Exercise 2
+      jtc = new jump_target_calc("jtc");
+      jtc->PC(PC);
+      jtc->imm_j(imm_j);
+      jtc->res(JumpTarget);
 }
 
 /**
@@ -315,6 +322,7 @@ mips::~mips(void)
       delete add4;
       delete addbr;
       delete btc;
+      delete jtc;
       delete mPC;
       delete dec1;
       delete mr;
