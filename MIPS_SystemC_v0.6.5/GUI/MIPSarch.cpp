@@ -205,11 +205,6 @@ MIPSarchCanvas::MIPSarchCanvas(mips &m, QObject *parent) : QCanvas(parent), mips
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
-    portVal=new PortValItem(this,mips1.reg_id_exe->Branch_exe, "Branch_exe");
-    portVal->move(475,78);
-    portVal->setColor(QColor("blue"));
-    portValVec.push_back(portVal);
-
     portVal=new PortValItem(this,mips1.reg_id_exe->MemRead_exe, "MemRead_exe");
     portVal->move(475,90);
     portVal->setColor(QColor("blue"));
@@ -250,11 +245,6 @@ MIPSarchCanvas::MIPSarchCanvas(mips &m, QObject *parent) : QCanvas(parent), mips
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
-    portVal=new PortValItem(this,mips1.reg_id_exe->PC4_exe, "PC4_exe");
-    portVal->move(472,171);
-    portVal->setColor(QColor("blue"));
-    portValVec.push_back(portVal);
-
     portVal=new PortValItem(this,mips1.addbr->res, "BranchTarget");
     portVal->move(599,171);
     portVal->setColor(QColor("blue"));
@@ -284,11 +274,6 @@ MIPSarchCanvas::MIPSarchCanvas(mips &m, QObject *parent) : QCanvas(parent), mips
 
     portVal=new PortValItem(this,mips1.reg_exe_mem->MemtoReg_mem, "MemtoReg_mem");
     portVal->move(652,66);
-    portVal->setColor(QColor("blue"));
-    portValVec.push_back(portVal);
-
-    portVal=new PortValItem(this,mips1.reg_exe_mem->Branch_mem, "Branch_mem");
-    portVal->move(652,78);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
@@ -322,18 +307,8 @@ MIPSarchCanvas::MIPSarchCanvas(mips &m, QObject *parent) : QCanvas(parent), mips
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
-    portVal=new PortValItem(this,mips1.reg_exe_mem->Zero_mem, "Zero_mem");
-    portVal->move(663,205);
-    portVal->setColor(QColor("blue"));
-    portValVec.push_back(portVal);
-
     portVal=new PortValItem(this,mips1.a1->dout, "BranchTaken");
     portVal->move(449,7);
-    portVal->setColor(QColor("blue"));
-    portValVec.push_back(portVal);
-
-    portVal=new PortValItem(this,mips1.reg_exe_mem->BranchTarget_mem, "BranchTarget_mem");
-    portVal->move(465,26);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 

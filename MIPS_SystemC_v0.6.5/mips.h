@@ -23,6 +23,7 @@
 #include "ext.h"
 #include "shiftl2.h"
 #include "add.h"
+#include "comparator.h"
 #include "gates.h"
 
 #include "regT.h"
@@ -63,14 +64,15 @@ SC_MODULE(mips) {
    control           *ctrl;      // control
    mux< sc_uint<5> >  *mr;       // selects destination register
    ext *e1;                      // sign extends imm to 32 bits
+   comparator        *comp;      // comparator to compare rs & rt
+   shiftl2 *sl2;                 // shift left 2 imm_ext
+   add *addbr;                   // adds imm to PC + 4
    orgate *or_reset_idexe;
    hazard *hazard_unit;
 
    //EXE
    alu               *alu1;      // ALU
    mux< sc_uint<32> > *m1;       // selects 2nd ALU operand
-   shiftl2 *sl2;                 // shift left 2 imm_ext
-   add *addbr;                   // adds imm to PC + 4
 
    //MEM
    dmem              *datamem;   // data memory
@@ -99,6 +101,8 @@ SC_MODULE(mips) {
    //ID
    sc_signal < sc_uint<32> > inst_id,  // current instruction ID phase
                              PC4_id;
+   sc_signal < bool > regdata_equal;
+
    // instruction fields
    sc_signal < sc_uint<5> > rs, rt, rd;
    sc_signal < sc_uint<16> > imm;
@@ -133,7 +137,7 @@ SC_MODULE(mips) {
 
    //EXE
    sc_signal < bool > Zero;            // ALU output is zero
-   sc_signal < sc_uint<32> > imm_exe, PC4_exe;
+   sc_signal < sc_uint<32> > imm_exe;
    sc_signal < sc_uint<32> > addr_ext; // imm_ext shift left 2
    sc_signal < sc_uint<5> > WriteReg_exe;
    // ALU signals
@@ -143,8 +147,7 @@ SC_MODULE(mips) {
    sc_signal <bool> RegWrite_exe;
    sc_signal <bool> ALUSrc_exe;
    sc_signal < sc_uint<3> > ALUOp_exe;
-   sc_signal <bool> Branch_exe;
-   
+
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
    sc_signal < sc_uint<32> > PC_exe;     // PC of instruction in ID
@@ -152,11 +155,10 @@ SC_MODULE(mips) {
 
    //MEM
    sc_signal < sc_uint<32> > MemOut;   // data memory output
-   sc_signal < sc_uint<32> > ALUOut_mem, BranchTarget_mem;   
+   sc_signal < sc_uint<32> > ALUOut_mem;   
    sc_signal < sc_uint<5> > WriteReg_mem;   
    sc_signal <bool> MemRead_mem, MemWrite_mem, MemtoReg_mem;
    sc_signal <bool> RegWrite_mem;
-   sc_signal <bool> Branch_mem, Zero_mem;
 
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
