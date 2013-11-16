@@ -41,7 +41,7 @@
  * %and interconnected inside this module.
  *
  *   - input ports
- *       - \c bool \c reset    - reset
+ *       - \c bool \c reset  - reset
  *       - \c bool \c clk    - clock
  *
  * \image latex MIPS_datapathPipe3.eps "architecture of mips" width=15cm
@@ -54,8 +54,8 @@ SC_MODULE(mips) {
    sc_in < bool > reset;
 
    // Modules
-   // IF 
-   registo           *PCreg;     // PC register
+   // IF
+   registr           *PCreg;     // PC register
    imem              *instmem;   // instruction memory
    add *add4;                    // adds 4 to PC
    mux4< sc_uint<32> > *mPC;     // selects Next PC from PCbrach and PC + 4
@@ -67,7 +67,7 @@ SC_MODULE(mips) {
    mux< sc_uint<5> >  *mr;       // selects destination register
    ext *e1;                      // sign extends imm to 32 bits
    branch_taken_calc *btc;       // branch taken calculator
-   jump_target_calc *jtc;     // branch target calculator
+   jump_target_calc *jtc;        // branch target calculator
    shiftl2 *sl2;                 // shift left 2 imm_ext
    add *addbr;                   // adds imm to PC + 4
    orgate *or_reset_ifid, *or_reset_idexe;
@@ -90,7 +90,7 @@ SC_MODULE(mips) {
    reg_mem_wb_t      *reg_mem_wb;
 
    // Signals
-   
+
    // IF
    sc_signal < sc_uint<32> > PC,       // Program Counter
                              NPC,      // Next Program Counter
@@ -159,25 +159,25 @@ SC_MODULE(mips) {
 
    //MEM
    sc_signal < sc_uint<32> > MemOut;   // data memory output
-   sc_signal < sc_uint<32> > ALUOut_mem;   
-   sc_signal < sc_uint<5> > WriteReg_mem;   
+   sc_signal < sc_uint<32> > ALUOut_mem;
+   sc_signal < sc_uint<5> > WriteReg_mem;
    sc_signal <bool> MemRead_mem, MemWrite_mem, MemtoReg_mem;
    sc_signal <bool> RegWrite_mem;
 
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
-   sc_signal < sc_uint<32> > PC_mem;   
+   sc_signal < sc_uint<32> > PC_mem;
    sc_signal < bool > valid_mem;
 
    //WB
-   sc_signal < sc_uint<32> > MemOut_wb, ALUOut_wb;   
-   sc_signal < sc_uint<5> > WriteReg_wb;   
+   sc_signal < sc_uint<32> > MemOut_wb, ALUOut_wb;
+   sc_signal < sc_uint<5> > WriteReg_wb;
    sc_signal <bool> MemtoReg_wb;
    sc_signal <bool> RegWrite_wb;
 
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
-   sc_signal < sc_uint<32> > PC_wb;   
+   sc_signal < sc_uint<32> > PC_wb;
    sc_signal < bool > valid_wb;
 
    //nonpipelined signals

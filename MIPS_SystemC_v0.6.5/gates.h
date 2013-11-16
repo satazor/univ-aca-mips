@@ -18,17 +18,17 @@
  */
 
 SC_MODULE(andgate) {
-  
+
   sc_in< bool >  din1;
   sc_in< bool >  din2;
   sc_out< bool > dout;
 
   SC_CTOR(andgate)
-     {      
+     {
       SC_METHOD(entry);
       sensitive << din1 << din2;
     }
-  
+
   void entry();
 };
 
@@ -43,17 +43,17 @@ SC_MODULE(andgate) {
  */
 
 SC_MODULE(orgate) {
-  
+
   sc_in< bool >  din1;
   sc_in< bool >  din2;
   sc_out< bool > dout;
 
   SC_CTOR(orgate)
-     {      
+     {
       SC_METHOD(entry);
       sensitive << din1 << din2;
     }
-  
+
   void entry();
 };
 

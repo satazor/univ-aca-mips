@@ -9,7 +9,7 @@ void disassemble(unsigned cod, char *decod)
     unsigned opcode=0, rs,rt,rd,imm,shamt,funct,target;
     bool imm_signed;
     char inst[20];
-    
+
     opcode = (cod>>26);
 
     if(opcode==0) { //R-Format
@@ -52,7 +52,7 @@ void disassemble(unsigned cod, char *decod)
           case  3: strcpy(inst,"jal");  break;
       default: strcpy(decod,"unknown"); return;
        }
-           
+
        sprintf(decod,"%s 0x%x",inst,target);
     } else if(opcode < 16) { //I-Format
 
@@ -60,7 +60,7 @@ void disassemble(unsigned cod, char *decod)
        rt    =  ( cod & 0x001f0000 ) >> 16;
        imm   =    cod & 0x0000ffff;
        imm_signed=false;
-       
+
        switch(opcode) {
           case  4: strcpy(inst,"beq");   imm_signed =true; break;
           case  5: strcpy(inst,"bne");   imm_signed =true; break;
@@ -88,7 +88,7 @@ void disassemble(unsigned cod, char *decod)
        rt    =  ( cod & 0x001f0000 ) >> 16;
        imm   =    cod & 0x0000ffff;
        imm_signed=false;
-       
+
        switch(opcode) {
       case 32: strcpy(inst,"lb");  imm_signed=true; break;
       case 33: strcpy(inst,"lh");  imm_signed=true; break;

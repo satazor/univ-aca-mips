@@ -10,8 +10,8 @@ void control::entry()
 
   switch(opcodeVal) {
     case 0: // R-format
-            RegDst.write(1);  
-            ALUSrc.write(0);
+        RegDst.write(1);
+        ALUSrc.write(0);
         MemtoReg.write(0);
         RegWrite.write(1);
         MemRead.write(0);
@@ -33,7 +33,7 @@ void control::entry()
     case  4: // beq
     case  2: // j
     case  8: // jr
-            ALUSrc.write(0);
+        ALUSrc.write(0);
         RegWrite.write(0);
         MemRead.write(0);
         MemWrite.write(0);
@@ -44,8 +44,8 @@ void control::entry()
 
         break;
     case 35: // lw
-            RegDst.write(0); 
-            ALUSrc.write(1);
+        RegDst.write(0);
+        ALUSrc.write(1);
         MemtoReg.write(1);
         RegWrite.write(1);
         MemRead.write(1);
@@ -54,7 +54,7 @@ void control::entry()
         ALUOp.write(2);
         break;
     case 43: // sw
-            ALUSrc.write(1);
+        ALUSrc.write(1);
         RegWrite.write(0);
         MemRead.write(0);
         MemWrite.write(1);
@@ -62,7 +62,7 @@ void control::entry()
         ALUOp.write(2);
         break;
    default: // Unknown opcode
-            fprintf(stderr,"ERROR: Illegal opcode\n");
+        fprintf(stderr,"ERROR: Illegal opcode\n");
         //assert(0);
         break;
     }

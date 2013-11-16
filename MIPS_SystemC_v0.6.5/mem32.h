@@ -16,9 +16,9 @@ using std::vector;
  * \c mem32 is the base class of all 32 bit memories (instruction memory,
  * data memory %and register bank).
  *
- * \c mem32 includes a variable size vector of \c sc_int<32> elements and basic 
+ * \c mem32 includes a variable size vector of \c sc_int<32> elements and basic
  * access functions to these elements.
- */ 
+ */
 class mem32
 {
   public:

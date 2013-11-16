@@ -2,9 +2,9 @@
 #include "reg.h"
 
 /**
- * \c registo module callback function.
+ * \c registr module callback function.
  */
-void registo::entry()
+void registr::entry()
 {
     if(reset) {
        val=0;

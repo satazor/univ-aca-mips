@@ -12,13 +12,13 @@
 
 /**
  * reg_id_exe_t module.
- * reg_id_exe_t module is the ID/EXE pipeline register. 
+ * reg_id_exe_t module is the ID/EXE pipeline register.
  */
 
 SC_MODULE(reg_id_exe_t) {
 
     // Ports
-    
+
     sc_in  < bool > clk;
     sc_in  < bool > reset;
     sc_in  < bool > enable;
@@ -29,8 +29,8 @@ SC_MODULE(reg_id_exe_t) {
     sc_in  < sc_uint<5> > WriteReg_id;
     sc_out < sc_uint<5> > WriteReg_exe;
 
-    sc_in  < bool > MemRead_id, MemWrite_id, MemtoReg_id; 
-    sc_out < bool > MemRead_exe, MemWrite_exe, MemtoReg_exe; 
+    sc_in  < bool > MemRead_id, MemWrite_id, MemtoReg_id;
+    sc_out < bool > MemRead_exe, MemWrite_exe, MemtoReg_exe;
 
     sc_in  < bool > ALUSrc_id, RegWrite_id;
     sc_out < bool > ALUSrc_exe, RegWrite_exe;
@@ -44,9 +44,9 @@ SC_MODULE(reg_id_exe_t) {
     sc_out < bool > valid_exe;      // only for visualization purposes
 
     // Modules
-    
+
     regT < sc_uint<32> > *rega,*regb,*imm;
-    regT < bool > *MemRead, *MemWrite, *MemtoReg, *RegWrite, *ALUSrc; 
+    regT < bool > *MemRead, *MemWrite, *MemtoReg, *RegWrite, *ALUSrc;
     regT < sc_uint<5> > *WriteReg;
     regT < sc_uint<3> > *ALUOp;
 

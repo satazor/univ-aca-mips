@@ -12,13 +12,13 @@
 
 /**
  * reg_mem_wb_t module.
- * reg_mem_wb_t module is the MEM/WB pipeline register. 
+ * reg_mem_wb_t module is the MEM/WB pipeline register.
  */
 
 SC_MODULE(reg_mem_wb_t) {
 
     // Ports
-    
+
     sc_in  < bool > clk;
     sc_in  < bool > reset;
     sc_in  < bool > enable;

@@ -9,7 +9,7 @@ using std::string;
 
 /**
  * reads \c mem32 memory contents from file \c filename.
- * The first number in each line of file is added to memory as an 32 bit 
+ * The first number in each line of file is added to memory as an 32 bit
  * integer.
  * The number is in base 16. Lines that do not start with a number are ignored.
  * The size of memory is given by the valid lines.
@@ -18,7 +18,7 @@ void mem32::init_memory(const char *filename)
 {
     unsigned int val;
     string str;
-    
+
     ifstream data(filename);
 
     if(!data) {

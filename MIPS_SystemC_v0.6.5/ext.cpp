@@ -6,9 +6,9 @@
  */
 void ext::entry()
 {
-    sc_int<16> aux16;  
+    sc_int<16> aux16;
     sc_int<32> aux32;  // cuidado com o sinal
-    sc_uint<32> auxu;  
+    sc_uint<32> auxu;
 
     aux16=din.read();
     aux32=aux16;

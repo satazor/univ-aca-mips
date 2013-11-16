@@ -46,14 +46,14 @@ void regfile::regfile_access()
     }
 
     if(reg1.read()<32) {
-       if(wr.read() == false || 
+       if(wr.read() == false ||
           wr.read() == true && regwrite.read()!=reg1.read())
            data1.write(memory[reg1.read()]);
        else
            data1.write(datawr.read());
     }
     if(reg2.read()<32) {
-       if(wr.read() == false || 
+       if(wr.read() == false ||
           wr.read() == true && regwrite.read()!=reg2.read())
            data2.write(memory[reg2.read()]);
        else

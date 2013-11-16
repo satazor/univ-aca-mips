@@ -8,12 +8,12 @@
 #include "mips.h"
 
 /**
- * buils IF stage components 
+ * buils IF stage components
  */
 void mips::buildIF(void)
 {
       // Program Counter
-      PCreg = new registo ("PCregister");
+      PCreg = new registr ("PCregister");
       PCreg->din(NPC);
       PCreg->dout(PC);
       PCreg->clk(clk);
@@ -26,7 +26,7 @@ void mips::buildIF(void)
       instmem->inst(inst);
 
       // Adds 4 to Program Counter
-      add4 = new add ("add4"); 
+      add4 = new add ("add4");
 
       add4->op1(PC);
       add4->op2(const4);
@@ -34,7 +34,7 @@ void mips::buildIF(void)
 
       // Selects Next Program Counter Value
       mPC = new mux4< sc_uint<32> > ("mPC");
-   
+
       mPC->sel(BranchTaken);
       mPC->din0(PC4);
       mPC->din1(BranchTarget);
@@ -44,7 +44,7 @@ void mips::buildIF(void)
 }
 
 /**
- * buils ID stage components 
+ * buils ID stage components
  */
 void mips::buildID(void)
 {
@@ -62,12 +62,12 @@ void mips::buildID(void)
 
       // Selects Register to Write
       mr = new mux< sc_uint<5> > ("muxRDst");
-   
+
       mr->sel(RegDst);
       mr->din0(rt);
       mr->din1(rd);
       mr->dout(WriteReg);
-   
+
       // Register File
       rfile = new regfile ("regfile");
 
@@ -91,9 +91,9 @@ void mips::buildID(void)
       // Control
       ctrl = new control ("control");
 
-      ctrl->opcode(opcode); 
-      ctrl->funct(funct);   
-      ctrl->RegDst(RegDst); 
+      ctrl->opcode(opcode);
+      ctrl->funct(funct);
+      ctrl->RegDst(RegDst);
       ctrl->Branch(Branch);
       ctrl->MemRead(MemRead);
       ctrl->MemWrite(MemWrite);
@@ -103,7 +103,7 @@ void mips::buildID(void)
       ctrl->RegWrite(RegWrite);
 
       //>> Exercise 1
-      // shift left 2 imm_ext 
+      // shift left 2 imm_ext
       sl2 = new shiftl2("sl2");
 
       sl2->din(imm_ext);
@@ -111,9 +111,9 @@ void mips::buildID(void)
 
       // Adds Branch Immediate to Program Counter + 4
       addbr = new add ("addbr");
-   
+
       addbr->op1(PC4);
-      addbr->op2(addr_ext);  
+      addbr->op2(addr_ext);
       addbr->res(BranchTarget);
 
       // Branch taken resolver
@@ -131,7 +131,7 @@ void mips::buildID(void)
 }
 
 /**
- * buils EXE stage components 
+ * buils EXE stage components
  */
 void mips::buildEXE(void)
 {
@@ -154,13 +154,13 @@ void mips::buildEXE(void)
 }
 
 /**
- * buils MEM stage components 
+ * buils MEM stage components
  */
 void mips::buildMEM(void)
 {
       // Data Memory
       datamem = new dmem ("datamem");
-   
+
       datamem->addr(ALUOut_mem);
       datamem->din(regb_mem);
       datamem->dout(MemOut);
@@ -170,13 +170,13 @@ void mips::buildMEM(void)
 }
 
 /**
- * buils WB stage components 
+ * buils WB stage components
  */
 void mips::buildWB(void)
 {
       // Selects Result
       m2 = new mux< sc_uint<32> > ("muxRes");
-   
+
       m2->sel(MemtoReg_wb);
       m2->din0(ALUOut_wb);
       m2->din1(MemOut_wb);
@@ -185,7 +185,7 @@ void mips::buildWB(void)
 
 /**
  * Instantiates the pipeline registers and calls other functions to
- * buils stage specific components 
+ * buils stage specific components
  */
 void mips::buildArchitecture(void){
 
@@ -278,7 +278,7 @@ void mips::buildArchitecture(void){
       reg_exe_mem->enable(const1);
 
       buildMEM();
-      
+
       //reg_mem_wb
       reg_mem_wb = new reg_mem_wb_t("reg_mem_wb");
       reg_mem_wb->aluOut_mem(ALUOut_mem);

@@ -17,10 +17,10 @@
  * \section intro Introduction
  *
  * \c MIPS_SystemC is a MIPS simulator that uses SystemC to model a
- * MIPS pipelined architecture. The architecture is identical to 
+ * MIPS pipelined architecture. The architecture is identical to
  * the one presented
- * in "Computer Organization %and Design" by Hennessy&Patterson. 
- * \c MIPS_SystemC has a graphical user interface that allows %control of 
+ * in "Computer Organization %and Design" by Hennessy&Patterson.
+ * \c MIPS_SystemC has a graphical user interface that allows %control of
  * program execution
  * %and displays some of the signal values inside the architecture.
  *
@@ -29,7 +29,7 @@
  * To compile \c MIPS_SystemC you need SystemC 2.0.1
  * %and Qt version 2.x installed in your system.
  *
- * You must also define the environment variables \c QTDIR %and \c SYSTEMC. The 
+ * You must also define the environment variables \c QTDIR %and \c SYSTEMC. The
  * correct value of these variables depend on the instalation of
  * Qt %and SystemC. As an example, \c QTDIR %and \c SYSTEMC may be initialised,
  * using the bash shell, by issuing the following commands:
@@ -46,11 +46,11 @@
  *
  *    \c MIPS_SystemC
  *
- *    The initial contents of instruction memory %and data memory 
- *    can be changed by editing files \c instmem.dat %and \c datamem.dat, 
+ *    The initial contents of instruction memory %and data memory
+ *    can be changed by editing files \c instmem.dat %and \c datamem.dat,
  *    respectively. These files are formatted as lists of hexadecimal
  *    numbers.
- * 
+ *
  */
 
 /**

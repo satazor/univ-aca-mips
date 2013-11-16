@@ -74,7 +74,7 @@ void MIPSctrl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 }
 
 const QMetaObjectExtraData MIPSctrl::staticMetaObjectExtraData = {
-    0,  qt_static_metacall 
+    0,  qt_static_metacall
 };
 
 const QMetaObject MIPSctrl::staticMetaObject = {

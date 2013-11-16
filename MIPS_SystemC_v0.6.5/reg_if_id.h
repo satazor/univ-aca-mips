@@ -12,13 +12,13 @@
 
 /**
  * reg_if_id_t module.
- * reg_if_id_t module is the IF/ID pipeline register. 
+ * reg_if_id_t module is the IF/ID pipeline register.
  */
 
 SC_MODULE(reg_if_id_t) {
 
     // Ports
-    
+
     sc_in  < bool > clk;
     sc_in  < bool > reset;
     sc_in  < bool > enable;
@@ -67,7 +67,7 @@ SC_MODULE(reg_if_id_t) {
         valid->clk(clk);
         valid->enable(enable);
         valid->reset(reset);
-        
+
     }
 };
 

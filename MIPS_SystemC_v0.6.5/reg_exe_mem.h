@@ -12,13 +12,13 @@
 
 /**
  * reg_exe_mem_t module.
- * reg_exe_mem_t module is the EXE/MEM pipeline register. 
+ * reg_exe_mem_t module is the EXE/MEM pipeline register.
  */
 
 SC_MODULE(reg_exe_mem_t) {
 
     // Ports
-    
+
     sc_in  < bool > clk;
     sc_in  < bool > reset;
     sc_in  < bool > enable;
