@@ -203,9 +203,13 @@ void mips::buildArchitecture(void){
       reg_if_id->valid_if(const1);
       reg_if_id->valid_id(valid_id);
       reg_if_id->clk(clk);
-      reg_if_id->reset(reset);
+      reg_if_id->reset(reset_ifid);
       reg_if_id->enable(enable_ifid);
 
+      or_reset_ifid = new orgate("or_reset_ifid");
+      or_reset_ifid->din1(reset);
+      or_reset_ifid->din2(reset_haz_ifid);
+      or_reset_ifid->dout(reset_ifid);
 
       buildID();
 
@@ -298,6 +302,7 @@ void mips::buildArchitecture(void){
       hazard_unit = new hazard("hazard_unit");
       hazard_unit->rs( rs );
       hazard_unit->rt( rt );
+      hazard_unit->BranchTaken(BranchTaken);
       hazard_unit->WriteReg_exe(WriteReg_exe);
       hazard_unit->RegWrite_exe(RegWrite_exe);
       hazard_unit->WriteReg_mem(WriteReg_mem);
@@ -305,6 +310,7 @@ void mips::buildArchitecture(void){
       hazard_unit->enable_pc(enable_pc);
       hazard_unit->enable_ifid(enable_ifid);
       hazard_unit->reset_idexe(reset_haz_idexe);
+      hazard_unit->reset_ifid(reset_haz_ifid);
    }
 
 mips::~mips(void)
@@ -329,6 +335,7 @@ mips::~mips(void)
 
       delete hazard_unit;
       delete or_reset_idexe;
+      delete or_reset_ifid;
       delete reg_if_id;
       delete reg_id_exe;
       delete reg_exe_mem;

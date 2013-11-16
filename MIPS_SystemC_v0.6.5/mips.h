@@ -67,7 +67,7 @@ SC_MODULE(mips) {
    comparator        *comp;      // comparator to compare rs & rt
    shiftl2 *sl2;                 // shift left 2 imm_ext
    add *addbr;                   // adds imm to PC + 4
-   orgate *or_reset_idexe;
+   orgate *or_reset_ifid, *or_reset_idexe;
    hazard *hazard_unit;
 
    //EXE
@@ -123,6 +123,7 @@ SC_MODULE(mips) {
                              regb_mem; // value of regiter rt MEM phase
 
    sc_signal <bool> reset_haz_idexe, reset_idexe;
+   sc_signal <bool> reset_haz_ifid, reset_ifid;
    // control signals
    sc_signal <bool> MemRead, MemWrite, MemtoReg;
    sc_signal <bool> RegWrite, RegDst;

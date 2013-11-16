@@ -31,16 +31,18 @@ SC_MODULE( hazard )
     sc_in< sc_uint<5> >  rs;
     sc_in< sc_uint<5> >  rt;        
     sc_in< sc_uint<5> >  WriteReg_exe, WriteReg_mem;        
-    sc_in< bool >  RegWrite_exe, RegWrite_mem;        
+    sc_in< bool >  RegWrite_exe, RegWrite_mem;    
+    sc_in< bool > BranchTaken;    
 
-    sc_out< bool >  enable_pc, enable_ifid, reset_idexe;        
+    sc_out< bool >  enable_pc, enable_ifid, reset_ifid, reset_idexe;        
 
     SC_CTOR(hazard)
     {      
         SC_METHOD(detect_hazard);
         sensitive << rs << rt 
 		  << WriteReg_exe << RegWrite_exe
-		  << WriteReg_mem << RegWrite_mem;
+		  << WriteReg_mem << RegWrite_mem
+          << BranchTaken;
    }
   
     void detect_hazard();
