@@ -16,16 +16,16 @@
  * Synchronous on writes, assinchronous on read.
  *
  *   - input ports
- *   	- \c sc_uint<5> \c reg1		- id1 of register to read 
- *   	- \c sc_uint<5> \c reg2		- id2 of register to read 
- *   	- \c sc_uint<5> \c regwrite	- id of register to write 
- *   	- \c sc_uint<32> \c datawr	- value to write 
- *   	- \c bool \c wr			- write enable
- *   	- \c bool \c clk		- clock
- *   	- \c bool \c reset		- reset
+ *       - \c sc_uint<5> \c reg1        - id1 of register to read 
+ *       - \c sc_uint<5> \c reg2        - id2 of register to read 
+ *       - \c sc_uint<5> \c regwrite    - id of register to write 
+ *       - \c sc_uint<32> \c datawr    - value to write 
+ *       - \c bool \c wr            - write enable
+ *       - \c bool \c clk        - clock
+ *       - \c bool \c reset        - reset
  *   - output ports
- *   	- \c sc_uint<32> \c data1		- value of register id1
- *   	- \c sc_uint<32> \c data2		- value of register id2
+ *       - \c sc_uint<32> \c data1        - value of register id1
+ *       - \c sc_uint<32> \c data2        - value of register id2
  */
 
 class regfile : public sc_module, public mem32

@@ -12,17 +12,17 @@
  * Control module.
  * Control module models the control unit of MIPS.
  *   - input ports
- *   	- \c sc_uint<6> \c opcode	- instruction opcode field
- *   	- \c sc_uint<6> \c funct		- instruction funct field
+ *       - \c sc_uint<6> \c opcode    - instruction opcode field
+ *       - \c sc_uint<6> \c funct        - instruction funct field
  *   - output ports
- *   	- \c bool \c RegDst	- selects if rd or rt is written
- *   	- \c bool \c RegWrite	- enables writing in Register file
- *   	- \c bool \c MemRead	- enables reading from Memory 
- *   	- \c bool \c MemWrite	- enables writing to Memory 
- *   	- \c bool \c MemtoReg	- Value to write in register comes from memory
- *   	- \c sc_uint<6> \c ALUOp		- selects ALU operation
- *   	- \c bool \c ALUSrc	- selects ALU second operand
- *   	- \c sc_uint<2> \c Branch	- 00 inactive; 01 - beq; 10 - j; 11 -jr
+ *       - \c bool \c RegDst    - selects if rd or rt is written
+ *       - \c bool \c RegWrite    - enables writing in Register file
+ *       - \c bool \c MemRead    - enables reading from Memory 
+ *       - \c bool \c MemWrite    - enables writing to Memory 
+ *       - \c bool \c MemtoReg    - Value to write in register comes from memory
+ *       - \c sc_uint<6> \c ALUOp        - selects ALU operation
+ *       - \c bool \c ALUSrc    - selects ALU second operand
+ *       - \c sc_uint<2> \c Branch    - 00 inactive; 01 - beq; 10 - j; 11 -jr
  */
 
 SC_MODULE(control) {

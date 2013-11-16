@@ -13,12 +13,12 @@
  * ALU module models the integer ALU of the MIPS. It can perform 6 operations:
  * %add, subtract, %and, or, set on equal
  *   - input ports
- *   	- \c sc_uint<32> \c din1	- first operand
- *   	- \c sc_uint<32> \c din2	- second operand
- *   	- \c sc_uint<3>  \c op	- selects operation
+ *       - \c sc_uint<32> \c din1    - first operand
+ *       - \c sc_uint<32> \c din2    - second operand
+ *       - \c sc_uint<3>  \c op    - selects operation
  *   - output ports
- *   	- \c sc_unint<32> \c dout	- result
- *   	- \c bool         \c zero	- active if result = 0
+ *       - \c sc_unint<32> \c dout    - result
+ *       - \c bool         \c zero    - active if result = 0
  */
 
 SC_MODULE(alu) {

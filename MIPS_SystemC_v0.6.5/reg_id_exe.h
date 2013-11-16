@@ -17,129 +17,129 @@
 
 SC_MODULE(reg_id_exe_t) {
 
-	// Ports
-	
-	sc_in  < bool > clk;
-	sc_in  < bool > reset;
-	sc_in  < bool > enable;
+    // Ports
+    
+    sc_in  < bool > clk;
+    sc_in  < bool > reset;
+    sc_in  < bool > enable;
 
-	sc_in  < sc_uint<32> > rega_id, regb_id, imm_id;
-	sc_out < sc_uint<32> > rega_exe, regb_exe, imm_exe;
+    sc_in  < sc_uint<32> > rega_id, regb_id, imm_id;
+    sc_out < sc_uint<32> > rega_exe, regb_exe, imm_exe;
 
-	sc_in  < sc_uint<5> > WriteReg_id;
-	sc_out < sc_uint<5> > WriteReg_exe;
+    sc_in  < sc_uint<5> > WriteReg_id;
+    sc_out < sc_uint<5> > WriteReg_exe;
 
-	sc_in  < bool > MemRead_id, MemWrite_id, MemtoReg_id; 
-	sc_out < bool > MemRead_exe, MemWrite_exe, MemtoReg_exe; 
+    sc_in  < bool > MemRead_id, MemWrite_id, MemtoReg_id; 
+    sc_out < bool > MemRead_exe, MemWrite_exe, MemtoReg_exe; 
 
-	sc_in  < bool > ALUSrc_id, RegWrite_id;
-	sc_out < bool > ALUSrc_exe, RegWrite_exe;
+    sc_in  < bool > ALUSrc_id, RegWrite_id;
+    sc_out < bool > ALUSrc_exe, RegWrite_exe;
 
-	sc_in  < sc_uint<3> > ALUOp_id;
-	sc_out < sc_uint<3> > ALUOp_exe;
+    sc_in  < sc_uint<3> > ALUOp_id;
+    sc_out < sc_uint<3> > ALUOp_exe;
 
-	sc_in  < sc_uint<32> > PC_id;   // only for visualization purposes
-	sc_out < sc_uint<32> > PC_exe;  // only for visualization purposes
-	sc_in  < bool > valid_id;       // only for visualization purposes
-	sc_out < bool > valid_exe;      // only for visualization purposes
+    sc_in  < sc_uint<32> > PC_id;   // only for visualization purposes
+    sc_out < sc_uint<32> > PC_exe;  // only for visualization purposes
+    sc_in  < bool > valid_id;       // only for visualization purposes
+    sc_out < bool > valid_exe;      // only for visualization purposes
 
-	// Modules
-	
-	regT < sc_uint<32> > *rega,*regb,*imm;
-	regT < bool > *MemRead, *MemWrite, *MemtoReg, *RegWrite, *ALUSrc; 
-	regT < sc_uint<5> > *WriteReg;
-	regT < sc_uint<3> > *ALUOp;
+    // Modules
+    
+    regT < sc_uint<32> > *rega,*regb,*imm;
+    regT < bool > *MemRead, *MemWrite, *MemtoReg, *RegWrite, *ALUSrc; 
+    regT < sc_uint<5> > *WriteReg;
+    regT < sc_uint<3> > *ALUOp;
 
-	regT < sc_uint<32> > *PC;      // only for visualization purposes
-	regT < bool > *valid;          // only for visualization purposes
+    regT < sc_uint<32> > *PC;      // only for visualization purposes
+    regT < bool > *valid;          // only for visualization purposes
 
-	SC_CTOR(reg_id_exe_t) {
+    SC_CTOR(reg_id_exe_t) {
 
-		rega = new regT < sc_uint<32> > ("rega");;
-		rega->din(rega_id);
-		rega->dout(rega_exe);
-		rega->clk(clk);
-		rega->enable(enable);
-		rega->reset(reset);
+        rega = new regT < sc_uint<32> > ("rega");;
+        rega->din(rega_id);
+        rega->dout(rega_exe);
+        rega->clk(clk);
+        rega->enable(enable);
+        rega->reset(reset);
 
-		regb = new regT < sc_uint<32> >("regb");
-		regb->din(regb_id);
-		regb->dout(regb_exe);
-		regb->clk(clk);
-		regb->enable(enable);
-		regb->reset(reset);
+        regb = new regT < sc_uint<32> >("regb");
+        regb->din(regb_id);
+        regb->dout(regb_exe);
+        regb->clk(clk);
+        regb->enable(enable);
+        regb->reset(reset);
 
-		WriteReg = new regT < sc_uint<5> >("WriteReg");
-		WriteReg->din(WriteReg_id);
-		WriteReg->dout(WriteReg_exe);
-		WriteReg->clk(clk);
-		WriteReg->enable(enable);
-		WriteReg->reset(reset);
+        WriteReg = new regT < sc_uint<5> >("WriteReg");
+        WriteReg->din(WriteReg_id);
+        WriteReg->dout(WriteReg_exe);
+        WriteReg->clk(clk);
+        WriteReg->enable(enable);
+        WriteReg->reset(reset);
 
-		imm = new regT < sc_uint<32> >("imm");
-		imm->din(imm_id);
-		imm->dout(imm_exe);
-		imm->clk(clk);
-		imm->enable(enable);
-		imm->reset(reset);
+        imm = new regT < sc_uint<32> >("imm");
+        imm->din(imm_id);
+        imm->dout(imm_exe);
+        imm->clk(clk);
+        imm->enable(enable);
+        imm->reset(reset);
 
-		MemRead = new regT < bool >("MemRead");
-		MemRead->din(MemRead_id);
-		MemRead->dout(MemRead_exe);
-		MemRead->clk(clk);
-		MemRead->enable(enable);
-		MemRead->reset(reset);
+        MemRead = new regT < bool >("MemRead");
+        MemRead->din(MemRead_id);
+        MemRead->dout(MemRead_exe);
+        MemRead->clk(clk);
+        MemRead->enable(enable);
+        MemRead->reset(reset);
 
-		MemWrite = new regT < bool >("MemWrite");
-		MemWrite->din(MemWrite_id);
-		MemWrite->dout(MemWrite_exe);
-		MemWrite->clk(clk);
-		MemWrite->enable(enable);
-		MemWrite->reset(reset);
+        MemWrite = new regT < bool >("MemWrite");
+        MemWrite->din(MemWrite_id);
+        MemWrite->dout(MemWrite_exe);
+        MemWrite->clk(clk);
+        MemWrite->enable(enable);
+        MemWrite->reset(reset);
 
-		MemtoReg = new regT < bool >("MemtoReg");
-		MemtoReg->din(MemtoReg_id);
-		MemtoReg->dout(MemtoReg_exe);
-		MemtoReg->clk(clk);
-		MemtoReg->enable(enable);
-		MemtoReg->reset(reset);
+        MemtoReg = new regT < bool >("MemtoReg");
+        MemtoReg->din(MemtoReg_id);
+        MemtoReg->dout(MemtoReg_exe);
+        MemtoReg->clk(clk);
+        MemtoReg->enable(enable);
+        MemtoReg->reset(reset);
 
-		RegWrite = new regT < bool >("RegWrite");
-		RegWrite->din(RegWrite_id);
-		RegWrite->dout(RegWrite_exe);
-		RegWrite->clk(clk);
-		RegWrite->enable(enable);
-		RegWrite->reset(reset);
+        RegWrite = new regT < bool >("RegWrite");
+        RegWrite->din(RegWrite_id);
+        RegWrite->dout(RegWrite_exe);
+        RegWrite->clk(clk);
+        RegWrite->enable(enable);
+        RegWrite->reset(reset);
 
-		ALUSrc = new regT < bool >("ALUSrc");
-		ALUSrc->din(ALUSrc_id);
-		ALUSrc->dout(ALUSrc_exe);
-		ALUSrc->clk(clk);
-		ALUSrc->enable(enable);
-		ALUSrc->reset(reset);
+        ALUSrc = new regT < bool >("ALUSrc");
+        ALUSrc->din(ALUSrc_id);
+        ALUSrc->dout(ALUSrc_exe);
+        ALUSrc->clk(clk);
+        ALUSrc->enable(enable);
+        ALUSrc->reset(reset);
 
-		ALUOp = new regT < sc_uint<3> >("ALUOp");
-		ALUOp->din(ALUOp_id);
-		ALUOp->dout(ALUOp_exe);
-		ALUOp->clk(clk);
-		ALUOp->enable(enable);
-		ALUOp->reset(reset);
+        ALUOp = new regT < sc_uint<3> >("ALUOp");
+        ALUOp->din(ALUOp_id);
+        ALUOp->dout(ALUOp_exe);
+        ALUOp->clk(clk);
+        ALUOp->enable(enable);
+        ALUOp->reset(reset);
 
-		PC = new regT < sc_uint<32> >("PC");
-		PC->din(PC_id);
-		PC->dout(PC_exe);
-		PC->clk(clk);
-		PC->enable(enable);
-		PC->reset(reset);
+        PC = new regT < sc_uint<32> >("PC");
+        PC->din(PC_id);
+        PC->dout(PC_exe);
+        PC->clk(clk);
+        PC->enable(enable);
+        PC->reset(reset);
 
-		valid = new regT < bool >("valid");
-		valid->din(valid_id);
-		valid->dout(valid_exe);
-		valid->clk(clk);
-		valid->enable(enable);
-		valid->reset(reset);
+        valid = new regT < bool >("valid");
+        valid->din(valid_id);
+        valid->dout(valid_exe);
+        valid->clk(clk);
+        valid->enable(enable);
+        valid->reset(reset);
 
-	}
+    }
 };
 
 #endif

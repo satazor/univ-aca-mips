@@ -14,13 +14,13 @@
  * Implementation based on a template class.
  *
  *   - input ports
- *   	- \c T \c din0		- input 
- *   	- \c T \c din1		- input
+ *       - \c T \c din0        - input 
+ *       - \c T \c din1        - input
  *    - \c T \c din2    - input 
  *    - \c T \c din3    - input 
- *   	- \c sc_uint<2> \c sel - select 
+ *       - \c sc_uint<2> \c sel - select 
  *   - output ports
- *   	- \c T \c dout		- output
+ *       - \c T \c dout        - output
  */
 
 template <class T> class mux4: public sc_module

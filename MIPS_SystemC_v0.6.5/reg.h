@@ -14,11 +14,11 @@
  * Synchronous on writes, assinchronous on reset.
  *
  *   - input ports
- *   	- \c sc_uint<32> \c din		- input 
- *   	- \c bool \c reset		- reset 
- *   	- \c bool \c clk		- clock 
+ *       - \c sc_uint<32> \c din        - input 
+ *       - \c bool \c reset        - reset 
+ *       - \c bool \c clk        - clock 
  *   - output ports
- *   	- \c sc_uint<32> \c dout		- output
+ *       - \c sc_uint<32> \c dout        - output
  */
 
 SC_MODULE(registo) {

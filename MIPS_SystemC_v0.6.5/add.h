@@ -11,10 +11,10 @@
  * adder module.
  * adder module adds two sc_uint<32> numbers without overflow or carry
  *   - input ports
- *   	   - \c sc_uint<32> \c op1 - first operand 
- *   	   - \c sc_uint<32> \c op2 - second operand
+ *          - \c sc_uint<32> \c op1 - first operand 
+ *          - \c sc_uint<32> \c op2 - second operand
  *   - output ports
- *   	   - \c sc_uint<32> \c res - result 
+ *          - \c sc_uint<32> \c res - result 
  *
  */
 

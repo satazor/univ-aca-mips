@@ -11,10 +11,10 @@
  * \c andgate module.
  * \c andgate module models a two input and gate
  *   - input ports
- *   	- \c bool \c din1	- first input
- *   	- \c bool \c din2	- second input
+ *       - \c bool \c din1    - first input
+ *       - \c bool \c din2    - second input
  *   - output ports
- *   	- \c bool \c dout	- result
+ *       - \c bool \c dout    - result
  */
 
 SC_MODULE(andgate) {
@@ -36,10 +36,10 @@ SC_MODULE(andgate) {
  * \c orgate module.
  * \c orgate module models a two input or gate
  *   - input ports
- *   	- \c bool \c din1	- first input
- *   	- \c bool \c din2	- second input
+ *       - \c bool \c din1    - first input
+ *       - \c bool \c din2    - second input
  *   - output ports
- *   	- \c bool \c dout	- result
+ *       - \c bool \c dout    - result
  */
 
 SC_MODULE(orgate) {

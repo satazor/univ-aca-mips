@@ -13,16 +13,16 @@
  * hazard module is the hazard detection unit.
  *
  *   - input ports
- *   	- \c sc_uint<5> \c rs	   - first register being read 
- *   	- \c sc_uint<5> \c rt	   - second register being read 
- *   	- \c sc_uint<5> \c WriteReg_exe	   - register to be written (EXE)
- *   	- \c sc_uint<5> \c WriteReg_mem	   - register to be written (MEM)
- *   	- \c bool \c RegWrite_exe	   - control signal of writing registers (EXE)
- *   	- \c bool \c RegWrite_mem	   - control signal of writing registers (MEM)
+ *       - \c sc_uint<5> \c rs       - first register being read 
+ *       - \c sc_uint<5> \c rt       - second register being read 
+ *       - \c sc_uint<5> \c WriteReg_exe       - register to be written (EXE)
+ *       - \c sc_uint<5> \c WriteReg_mem       - register to be written (MEM)
+ *       - \c bool \c RegWrite_exe       - control signal of writing registers (EXE)
+ *       - \c bool \c RegWrite_mem       - control signal of writing registers (MEM)
  *   - output ports
- *   	- \c bool \c enable_pc      - enables PC update
- *   	- \c bool \c enable_ifid    - enables IF/ID update
- *   	- \c bool \c reset_idexe    - resets IF/EXE
+ *       - \c bool \c enable_pc      - enables PC update
+ *       - \c bool \c enable_ifid    - enables IF/ID update
+ *       - \c bool \c reset_idexe    - resets IF/EXE
  */
 
 SC_MODULE( hazard )
@@ -40,8 +40,8 @@ SC_MODULE( hazard )
     {      
         SC_METHOD(detect_hazard);
         sensitive << rs << rt 
-		  << WriteReg_exe << RegWrite_exe
-		  << WriteReg_mem << RegWrite_mem
+          << WriteReg_exe << RegWrite_exe
+          << WriteReg_mem << RegWrite_mem
           << BranchTaken;
    }
   

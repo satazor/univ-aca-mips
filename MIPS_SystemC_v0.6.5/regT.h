@@ -15,12 +15,12 @@
  * Synchronous on writes and resets.
  *
  *   - input ports
- *   	- \c T \c din		- input 
- *   	- \c bool \c reset		- reset 
- *   	- \c bool \c enable		- enable 
- *   	- \c bool \c clk		- clock 
+ *       - \c T \c din        - input 
+ *       - \c bool \c reset        - reset 
+ *       - \c bool \c enable        - enable 
+ *       - \c bool \c clk        - clock 
  *   - output ports
- *   	- \c T \c dout		- output
+ *       - \c T \c dout        - output
  */
 
 

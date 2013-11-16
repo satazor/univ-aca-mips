@@ -41,8 +41,8 @@
  * %and interconnected inside this module.
  *
  *   - input ports
- *   	- \c bool \c reset	- reset
- *   	- \c bool \c clk	- clock
+ *       - \c bool \c reset    - reset
+ *       - \c bool \c clk    - clock
  *
  * \image latex MIPS_datapathPipe3.eps "architecture of mips" width=15cm
  */
@@ -94,7 +94,7 @@ SC_MODULE(mips) {
    // IF
    sc_signal < sc_uint<32> > PC,       // Program Counter
                              NPC,      // Next Program Counter
-			     PC4;      // PC + 4
+                 PC4;      // PC + 4
    sc_signal < sc_uint<32> > inst;     // current instruction
    sc_signal <bool> enable_pc;
 
@@ -117,7 +117,7 @@ SC_MODULE(mips) {
 
    sc_signal < sc_uint<32> > regdata1, // value of register rs
                              regdata2, // value of regiter rt
-			     WriteVal; // value to write in register WriteReg
+                 WriteVal; // value to write in register WriteReg
 
    sc_signal < sc_uint<32> > imm_ext;  // imm sign extended
 

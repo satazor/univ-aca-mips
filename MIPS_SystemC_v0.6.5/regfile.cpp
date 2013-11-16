@@ -34,7 +34,7 @@ void regfile::regfile_access()
     //assert(reg2.read()<32);
 
     if(reset.read()==true) {
-	    init_regs();
+        init_regs();
     }
 
     if(clk.event() && clk.read()==1 && wr.read()) {
@@ -42,7 +42,7 @@ void regfile::regfile_access()
         //assert(regwrite.read()<32);
         if(regwrite.read()<32 && regwrite.read()>0){
            memory[regwrite.read()]=datawr.read();
-	}
+    }
     }
 
     if(reg1.read()<32) {

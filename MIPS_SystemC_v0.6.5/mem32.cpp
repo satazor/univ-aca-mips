@@ -23,7 +23,7 @@ void mem32::init_memory(const char *filename)
 
     if(!data) {
          fprintf(stderr,"ERROR: Could not find file %s\n",filename);
-	 exit(1);
+     exit(1);
     }
 
     memory.clear();
@@ -31,9 +31,9 @@ void mem32::init_memory(const char *filename)
     std::getline(data, str);
     while(!data.eof()) {
          if (sscanf(str.c_str(),"%x",&val)==1) {
-	     memory.push_back(val);
-	 }
-	 std::getline(data, str);
+         memory.push_back(val);
+     }
+     std::getline(data, str);
     }
 }
 
