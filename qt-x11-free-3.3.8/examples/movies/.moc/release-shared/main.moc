@@ -1,0 +1,217 @@
+/****************************************************************************
+** MovieScreen meta object code from reading C++ file 'main.cpp'
+**
+** Created: Wed Oct 9 11:08:01 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *MovieScreen::className() const
+{
+    return "MovieScreen";
+}
+
+QMetaObject *MovieScreen::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_MovieScreen( "MovieScreen", &MovieScreen::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString MovieScreen::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "MovieScreen", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString MovieScreen::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "MovieScreen", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* MovieScreen::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QFrame::staticMetaObject();
+    static const QUMethod slot_0 = {"restart", 0, 0 };
+    static const QUMethod slot_1 = {"togglePause", 0, 0 };
+    static const QUMethod slot_2 = {"step", 0, 0 };
+    static const QUMethod slot_3 = {"step10", 0, 0 };
+    static const QUParameter param_slot_4[] = {
+	{ "area", &static_QUType_varptr, "\x08", QUParameter::In }
+    };
+    static const QUMethod slot_4 = {"movieUpdated", 1, param_slot_4 };
+    static const QUParameter param_slot_5[] = {
+	{ "size", &static_QUType_varptr, "\x09", QUParameter::In }
+    };
+    static const QUMethod slot_5 = {"movieResized", 1, param_slot_5 };
+    static const QUParameter param_slot_6[] = {
+	{ "status", &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_6 = {"movieStatus", 1, param_slot_6 };
+    static const QMetaData slot_tbl[] = {
+	{ "restart()", &slot_0, QMetaData::Public },
+	{ "togglePause()", &slot_1, QMetaData::Public },
+	{ "step()", &slot_2, QMetaData::Public },
+	{ "step10()", &slot_3, QMetaData::Public },
+	{ "movieUpdated(const QRect&)", &slot_4, QMetaData::Private },
+	{ "movieResized(const QSize&)", &slot_5, QMetaData::Private },
+	{ "movieStatus(int)", &slot_6, QMetaData::Private }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"MovieScreen", parentObject,
+	slot_tbl, 7,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_MovieScreen.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* MovieScreen::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "MovieScreen" ) )
+	return this;
+    return QFrame::qt_cast( clname );
+}
+
+bool MovieScreen::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: restart(); break;
+    case 1: togglePause(); break;
+    case 2: step(); break;
+    case 3: step10(); break;
+    case 4: movieUpdated((const QRect&)*((const QRect*)static_QUType_ptr.get(_o+1))); break;
+    case 5: movieResized((const QSize&)*((const QSize*)static_QUType_ptr.get(_o+1))); break;
+    case 6: movieStatus((int)static_QUType_int.get(_o+1)); break;
+    default:
+	return QFrame::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool MovieScreen::qt_emit( int _id, QUObject* _o )
+{
+    return QFrame::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool MovieScreen::qt_property( int id, int f, QVariant* v)
+{
+    return QFrame::qt_property( id, f, v);
+}
+
+bool MovieScreen::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES
+
+
+const char *MovieStarter::className() const
+{
+    return "MovieStarter";
+}
+
+QMetaObject *MovieStarter::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_MovieStarter( "MovieStarter", &MovieStarter::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString MovieStarter::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "MovieStarter", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString MovieStarter::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "MovieStarter", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* MovieStarter::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QFileDialog::staticMetaObject();
+    static const QUParameter param_slot_0[] = {
+	{ "filename", &static_QUType_QString, 0, QUParameter::In }
+    };
+    static const QUMethod slot_0 = {"startMovie", 1, param_slot_0 };
+    static const QUParameter param_slot_1[] = {
+	{ "r", &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_1 = {"done", 1, param_slot_1 };
+    static const QMetaData slot_tbl[] = {
+	{ "startMovie(const QString&)", &slot_0, QMetaData::Public },
+	{ "done(int)", &slot_1, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"MovieStarter", parentObject,
+	slot_tbl, 2,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_MovieStarter.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* MovieStarter::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "MovieStarter" ) )
+	return this;
+    return QFileDialog::qt_cast( clname );
+}
+
+bool MovieStarter::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: startMovie((const QString&)static_QUType_QString.get(_o+1)); break;
+    case 1: done((int)static_QUType_int.get(_o+1)); break;
+    default:
+	return QFileDialog::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool MovieStarter::qt_emit( int _id, QUObject* _o )
+{
+    return QFileDialog::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool MovieStarter::qt_property( int id, int f, QVariant* v)
+{
+    return QFileDialog::qt_property( id, f, v);
+}
+
+bool MovieStarter::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

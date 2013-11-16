@@ -1,0 +1,184 @@
+/****************************************************************************
+** DropWindow meta object code from reading C++ file 'qdragapp.cpp'
+**
+** Created: Wed Oct 9 11:08:23 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *DropWindow::className() const
+{
+    return "DropWindow";
+}
+
+QMetaObject *DropWindow::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_DropWindow( "DropWindow", &DropWindow::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString DropWindow::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "DropWindow", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString DropWindow::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "DropWindow", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* DropWindow::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QWidget::staticMetaObject();
+    metaObj = QMetaObject::new_metaobject(
+	"DropWindow", parentObject,
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_DropWindow.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* DropWindow::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "DropWindow" ) )
+	return this;
+    return QWidget::qt_cast( clname );
+}
+
+bool DropWindow::qt_invoke( int _id, QUObject* _o )
+{
+    return QWidget::qt_invoke(_id,_o);
+}
+
+bool DropWindow::qt_emit( int _id, QUObject* _o )
+{
+    return QWidget::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool DropWindow::qt_property( int id, int f, QVariant* v)
+{
+    return QWidget::qt_property( id, f, v);
+}
+
+bool DropWindow::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES
+
+
+const char *QDragger::className() const
+{
+    return "QDragger";
+}
+
+QMetaObject *QDragger::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_QDragger( "QDragger", &QDragger::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString QDragger::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "QDragger", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString QDragger::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "QDragger", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* QDragger::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QObject::staticMetaObject();
+    static const QUMethod slot_0 = {"openDropWindow", 0, 0 };
+    static const QUMethod slot_1 = {"killDropWindow", 0, 0 };
+    static const QUMethod slot_2 = {"killAllDropWindows", 0, 0 };
+    static const QUMethod slot_3 = {"sendChildHome", 0, 0 };
+    static const QUMethod slot_4 = {"sendAllChildrenHome", 0, 0 };
+    static const QMetaData slot_tbl[] = {
+	{ "openDropWindow()", &slot_0, QMetaData::Public },
+	{ "killDropWindow()", &slot_1, QMetaData::Public },
+	{ "killAllDropWindows()", &slot_2, QMetaData::Public },
+	{ "sendChildHome()", &slot_3, QMetaData::Public },
+	{ "sendAllChildrenHome()", &slot_4, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"QDragger", parentObject,
+	slot_tbl, 5,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_QDragger.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* QDragger::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "QDragger" ) )
+	return this;
+    return QObject::qt_cast( clname );
+}
+
+bool QDragger::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: openDropWindow(); break;
+    case 1: killDropWindow(); break;
+    case 2: killAllDropWindows(); break;
+    case 3: sendChildHome(); break;
+    case 4: sendAllChildrenHome(); break;
+    default:
+	return QObject::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool QDragger::qt_emit( int _id, QUObject* _o )
+{
+    return QObject::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool QDragger::qt_property( int id, int f, QVariant* v)
+{
+    return QObject::qt_property( id, f, v);
+}
+
+bool QDragger::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

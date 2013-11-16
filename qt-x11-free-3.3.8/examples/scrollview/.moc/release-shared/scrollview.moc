@@ -1,0 +1,217 @@
+/****************************************************************************
+** BigShrinker meta object code from reading C++ file 'scrollview.cpp'
+**
+** Created: Wed Oct 9 11:08:17 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *BigShrinker::className() const
+{
+    return "BigShrinker";
+}
+
+QMetaObject *BigShrinker::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_BigShrinker( "BigShrinker", &BigShrinker::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString BigShrinker::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "BigShrinker", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString BigShrinker::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "BigShrinker", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* BigShrinker::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QFrame::staticMetaObject();
+    static const QUParameter param_signal_0[] = {
+	{ 0, &static_QUType_int, 0, QUParameter::In },
+	{ 0, &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod signal_0 = {"clicked", 2, param_signal_0 };
+    static const QMetaData signal_tbl[] = {
+	{ "clicked(int,int)", &signal_0, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"BigShrinker", parentObject,
+	0, 0,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_BigShrinker.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* BigShrinker::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "BigShrinker" ) )
+	return this;
+    return QFrame::qt_cast( clname );
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL clicked
+void BigShrinker::clicked( int t0, int t1 )
+{
+    if ( signalsBlocked() )
+	return;
+    QConnectionList *clist = receivers( staticMetaObject()->signalOffset() + 0 );
+    if ( !clist )
+	return;
+    QUObject o[3];
+    static_QUType_int.set(o+1,t0);
+    static_QUType_int.set(o+2,t1);
+    activate_signal( clist, o );
+}
+
+bool BigShrinker::qt_invoke( int _id, QUObject* _o )
+{
+    return QFrame::qt_invoke(_id,_o);
+}
+
+bool BigShrinker::qt_emit( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->signalOffset() ) {
+    case 0: clicked((int)static_QUType_int.get(_o+1),(int)static_QUType_int.get(_o+2)); break;
+    default:
+	return QFrame::qt_emit(_id,_o);
+    }
+    return TRUE;
+}
+#ifndef QT_NO_PROPERTIES
+
+bool BigShrinker::qt_property( int id, int f, QVariant* v)
+{
+    return QFrame::qt_property( id, f, v);
+}
+
+bool BigShrinker::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES
+
+
+const char *ScrollViewExample::className() const
+{
+    return "ScrollViewExample";
+}
+
+QMetaObject *ScrollViewExample::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_ScrollViewExample( "ScrollViewExample", &ScrollViewExample::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString ScrollViewExample::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "ScrollViewExample", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString ScrollViewExample::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "ScrollViewExample", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* ScrollViewExample::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QWidget::staticMetaObject();
+    static const QUParameter param_slot_0[] = {
+	{ "id", &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_0 = {"doVPMenuItem", 1, param_slot_0 };
+    static const QUMethod slot_1 = {"setVPMenuItems", 0, 0 };
+    static const QUParameter param_slot_2[] = {
+	{ "id", &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_2 = {"doFMenuItem", 1, param_slot_2 };
+    static const QUMethod slot_3 = {"setFMenuItems", 0, 0 };
+    static const QMetaData slot_tbl[] = {
+	{ "doVPMenuItem(int)", &slot_0, QMetaData::Private },
+	{ "setVPMenuItems()", &slot_1, QMetaData::Private },
+	{ "doFMenuItem(int)", &slot_2, QMetaData::Private },
+	{ "setFMenuItems()", &slot_3, QMetaData::Private }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"ScrollViewExample", parentObject,
+	slot_tbl, 4,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_ScrollViewExample.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* ScrollViewExample::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "ScrollViewExample" ) )
+	return this;
+    return QWidget::qt_cast( clname );
+}
+
+bool ScrollViewExample::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: doVPMenuItem((int)static_QUType_int.get(_o+1)); break;
+    case 1: setVPMenuItems(); break;
+    case 2: doFMenuItem((int)static_QUType_int.get(_o+1)); break;
+    case 3: setFMenuItems(); break;
+    default:
+	return QWidget::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool ScrollViewExample::qt_emit( int _id, QUObject* _o )
+{
+    return QWidget::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool ScrollViewExample::qt_property( int id, int f, QVariant* v)
+{
+    return QWidget::qt_property( id, f, v);
+}
+
+bool ScrollViewExample::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

@@ -1,0 +1,13 @@
+0x002020     #         add r4,r0,r0    
+0x8c010000   #         lw  r1,0(r0)    
+0x8c050004   #         lw  r5,4(r0)    
+0x8c030008   #         lw  r3,8(r0)    
+0x8c07000c   #         lw  r7,c(r0)    
+0x8c620000   # label1: lw  r2,0(r3)      
+0x442020     #         add r4,r4,r2
+0x611820     #         add r3,r3,r1
+0x65302a     #         slt r6,r3,r5
+0x10c7fffb   #         beq r6,r7,label1        
+0xac040010   #         sw  r4,0x10(r0)       
+0x25         #         nop
+

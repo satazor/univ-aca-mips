@@ -1,0 +1,120 @@
+/****************************************************************************
+** Client meta object code from reading C++ file 'client.cpp'
+**
+** Created: Wed Oct 9 11:09:01 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *Client::className() const
+{
+    return "Client";
+}
+
+QMetaObject *Client::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_Client( "Client", &Client::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString Client::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "Client", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString Client::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "Client", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* Client::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QVBox::staticMetaObject();
+    static const QUMethod slot_0 = {"closeConnection", 0, 0 };
+    static const QUMethod slot_1 = {"sendToServer", 0, 0 };
+    static const QUMethod slot_2 = {"socketReadyRead", 0, 0 };
+    static const QUMethod slot_3 = {"socketConnected", 0, 0 };
+    static const QUMethod slot_4 = {"socketConnectionClosed", 0, 0 };
+    static const QUMethod slot_5 = {"socketClosed", 0, 0 };
+    static const QUParameter param_slot_6[] = {
+	{ "e", &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_6 = {"socketError", 1, param_slot_6 };
+    static const QMetaData slot_tbl[] = {
+	{ "closeConnection()", &slot_0, QMetaData::Private },
+	{ "sendToServer()", &slot_1, QMetaData::Private },
+	{ "socketReadyRead()", &slot_2, QMetaData::Private },
+	{ "socketConnected()", &slot_3, QMetaData::Private },
+	{ "socketConnectionClosed()", &slot_4, QMetaData::Private },
+	{ "socketClosed()", &slot_5, QMetaData::Private },
+	{ "socketError(int)", &slot_6, QMetaData::Private }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"Client", parentObject,
+	slot_tbl, 7,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_Client.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* Client::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "Client" ) )
+	return this;
+    return QVBox::qt_cast( clname );
+}
+
+bool Client::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: closeConnection(); break;
+    case 1: sendToServer(); break;
+    case 2: socketReadyRead(); break;
+    case 3: socketConnected(); break;
+    case 4: socketConnectionClosed(); break;
+    case 5: socketClosed(); break;
+    case 6: socketError((int)static_QUType_int.get(_o+1)); break;
+    default:
+	return QVBox::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool Client::qt_emit( int _id, QUObject* _o )
+{
+    return QVBox::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool Client::qt_property( int id, int f, QVariant* v)
+{
+    return QVBox::qt_property( id, f, v);
+}
+
+bool Client::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

@@ -1,0 +1,120 @@
+/****************************************************************************
+** CPUWaster meta object code from reading C++ file 'progress.cpp'
+**
+** Created: Wed Oct 9 11:08:04 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *CPUWaster::className() const
+{
+    return "CPUWaster";
+}
+
+QMetaObject *CPUWaster::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_CPUWaster( "CPUWaster", &CPUWaster::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString CPUWaster::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "CPUWaster", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString CPUWaster::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "CPUWaster", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* CPUWaster::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QWidget::staticMetaObject();
+    static const QUParameter param_slot_0[] = {
+	{ "id", &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_0 = {"doMenuItem", 1, param_slot_0 };
+    static const QUMethod slot_1 = {"stopDrawing", 0, 0 };
+    static const QUMethod slot_2 = {"timerDriven", 0, 0 };
+    static const QUMethod slot_3 = {"loopDriven", 0, 0 };
+    static const QUMethod slot_4 = {"defaultLabel", 0, 0 };
+    static const QUMethod slot_5 = {"customLabel", 0, 0 };
+    static const QUMethod slot_6 = {"toggleMinimumDuration", 0, 0 };
+    static const QMetaData slot_tbl[] = {
+	{ "doMenuItem(int)", &slot_0, QMetaData::Public },
+	{ "stopDrawing()", &slot_1, QMetaData::Public },
+	{ "timerDriven()", &slot_2, QMetaData::Public },
+	{ "loopDriven()", &slot_3, QMetaData::Public },
+	{ "defaultLabel()", &slot_4, QMetaData::Public },
+	{ "customLabel()", &slot_5, QMetaData::Public },
+	{ "toggleMinimumDuration()", &slot_6, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"CPUWaster", parentObject,
+	slot_tbl, 7,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_CPUWaster.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* CPUWaster::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "CPUWaster" ) )
+	return this;
+    return QWidget::qt_cast( clname );
+}
+
+bool CPUWaster::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: doMenuItem((int)static_QUType_int.get(_o+1)); break;
+    case 1: stopDrawing(); break;
+    case 2: timerDriven(); break;
+    case 3: loopDriven(); break;
+    case 4: defaultLabel(); break;
+    case 5: customLabel(); break;
+    case 6: toggleMinimumDuration(); break;
+    default:
+	return QWidget::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool CPUWaster::qt_emit( int _id, QUObject* _o )
+{
+    return QWidget::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool CPUWaster::qt_property( int id, int f, QVariant* v)
+{
+    return QWidget::qt_property( id, f, v);
+}
+
+bool CPUWaster::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

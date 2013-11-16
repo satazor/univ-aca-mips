@@ -1,0 +1,220 @@
+/****************************************************************************
+** AssistantSocket meta object code from reading C++ file 'main.cpp'
+**
+** Created: Wed Oct 9 11:05:53 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *AssistantSocket::className() const
+{
+    return "AssistantSocket";
+}
+
+QMetaObject *AssistantSocket::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_AssistantSocket( "AssistantSocket", &AssistantSocket::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString AssistantSocket::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "AssistantSocket", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString AssistantSocket::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "AssistantSocket", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* AssistantSocket::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QSocket::staticMetaObject();
+    static const QUMethod slot_0 = {"readClient", 0, 0 };
+    static const QUMethod slot_1 = {"connectionClosed", 0, 0 };
+    static const QMetaData slot_tbl[] = {
+	{ "readClient()", &slot_0, QMetaData::Private },
+	{ "connectionClosed()", &slot_1, QMetaData::Private }
+    };
+    static const QUParameter param_signal_0[] = {
+	{ 0, &static_QUType_QString, 0, QUParameter::In }
+    };
+    static const QUMethod signal_0 = {"showLinkRequest", 1, param_signal_0 };
+    static const QMetaData signal_tbl[] = {
+	{ "showLinkRequest(const QString&)", &signal_0, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"AssistantSocket", parentObject,
+	slot_tbl, 2,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_AssistantSocket.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* AssistantSocket::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "AssistantSocket" ) )
+	return this;
+    return QSocket::qt_cast( clname );
+}
+
+// SIGNAL showLinkRequest
+void AssistantSocket::showLinkRequest( const QString& t0 )
+{
+    activate_signal( staticMetaObject()->signalOffset() + 0, t0 );
+}
+
+bool AssistantSocket::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: readClient(); break;
+    case 1: connectionClosed(); break;
+    default:
+	return QSocket::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool AssistantSocket::qt_emit( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->signalOffset() ) {
+    case 0: showLinkRequest((const QString&)static_QUType_QString.get(_o+1)); break;
+    default:
+	return QSocket::qt_emit(_id,_o);
+    }
+    return TRUE;
+}
+#ifndef QT_NO_PROPERTIES
+
+bool AssistantSocket::qt_property( int id, int f, QVariant* v)
+{
+    return QSocket::qt_property( id, f, v);
+}
+
+bool AssistantSocket::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES
+
+
+const char *AssistantServer::className() const
+{
+    return "AssistantServer";
+}
+
+QMetaObject *AssistantServer::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_AssistantServer( "AssistantServer", &AssistantServer::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString AssistantServer::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "AssistantServer", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString AssistantServer::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "AssistantServer", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* AssistantServer::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QServerSocket::staticMetaObject();
+    static const QUParameter param_signal_0[] = {
+	{ 0, &static_QUType_QString, 0, QUParameter::In }
+    };
+    static const QUMethod signal_0 = {"showLinkRequest", 1, param_signal_0 };
+    static const QUMethod signal_1 = {"newConnect", 0, 0 };
+    static const QMetaData signal_tbl[] = {
+	{ "showLinkRequest(const QString&)", &signal_0, QMetaData::Public },
+	{ "newConnect()", &signal_1, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"AssistantServer", parentObject,
+	0, 0,
+	signal_tbl, 2,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_AssistantServer.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* AssistantServer::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "AssistantServer" ) )
+	return this;
+    return QServerSocket::qt_cast( clname );
+}
+
+// SIGNAL showLinkRequest
+void AssistantServer::showLinkRequest( const QString& t0 )
+{
+    activate_signal( staticMetaObject()->signalOffset() + 0, t0 );
+}
+
+// SIGNAL newConnect
+void AssistantServer::newConnect()
+{
+    activate_signal( staticMetaObject()->signalOffset() + 1 );
+}
+
+bool AssistantServer::qt_invoke( int _id, QUObject* _o )
+{
+    return QServerSocket::qt_invoke(_id,_o);
+}
+
+bool AssistantServer::qt_emit( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->signalOffset() ) {
+    case 0: showLinkRequest((const QString&)static_QUType_QString.get(_o+1)); break;
+    case 1: newConnect(); break;
+    default:
+	return QServerSocket::qt_emit(_id,_o);
+    }
+    return TRUE;
+}
+#ifndef QT_NO_PROPERTIES
+
+bool AssistantServer::qt_property( int id, int f, QVariant* v)
+{
+    return QServerSocket::qt_property( id, f, v);
+}
+
+bool AssistantServer::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

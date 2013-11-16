@@ -1,0 +1,409 @@
+/****************************************************************************
+** XFormControl meta object code from reading C++ file 'xform.cpp'
+**
+** Created: Wed Oct 9 11:08:45 2013
+**      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <qmetaobject.h>
+#include <qapplication.h>
+
+#include <private/qucomextra_p.h>
+#if !defined(Q_MOC_OUTPUT_REVISION) || (Q_MOC_OUTPUT_REVISION != 26)
+#error "This file was generated using the moc from 3.3.8. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+const char *XFormControl::className() const
+{
+    return "XFormControl";
+}
+
+QMetaObject *XFormControl::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_XFormControl( "XFormControl", &XFormControl::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString XFormControl::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "XFormControl", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString XFormControl::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "XFormControl", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* XFormControl::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QVBox::staticMetaObject();
+    static const QUMethod slot_0 = {"newMtx", 0, 0 };
+    static const QUParameter param_slot_1[] = {
+	{ 0, &static_QUType_QString, 0, QUParameter::In }
+    };
+    static const QUMethod slot_1 = {"newTxt", 1, param_slot_1 };
+    static const QUMethod slot_2 = {"selectFont", 0, 0 };
+    static const QUParameter param_slot_3[] = {
+	{ 0, &static_QUType_varptr, "\x05", QUParameter::In }
+    };
+    static const QUMethod slot_3 = {"fontSelected", 1, param_slot_3 };
+    static const QUParameter param_slot_4[] = {
+	{ 0, &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_4 = {"changeMode", 1, param_slot_4 };
+    static const QUParameter param_slot_5[] = {
+	{ 0, &static_QUType_ptr, "QTimerEvent", QUParameter::In }
+    };
+    static const QUMethod slot_5 = {"timerEvent", 1, param_slot_5 };
+    static const QMetaData slot_tbl[] = {
+	{ "newMtx()", &slot_0, QMetaData::Private },
+	{ "newTxt(const QString&)", &slot_1, QMetaData::Private },
+	{ "selectFont()", &slot_2, QMetaData::Private },
+	{ "fontSelected(const QFont&)", &slot_3, QMetaData::Private },
+	{ "changeMode(int)", &slot_4, QMetaData::Private },
+	{ "timerEvent(QTimerEvent*)", &slot_5, QMetaData::Private }
+    };
+    static const QUParameter param_signal_0[] = {
+	{ 0, &static_QUType_ptr, "QWMatrix", QUParameter::In }
+    };
+    static const QUMethod signal_0 = {"newMatrix", 1, param_signal_0 };
+    static const QUParameter param_signal_1[] = {
+	{ 0, &static_QUType_QString, 0, QUParameter::In }
+    };
+    static const QUMethod signal_1 = {"newText", 1, param_signal_1 };
+    static const QUParameter param_signal_2[] = {
+	{ 0, &static_QUType_varptr, "\x05", QUParameter::In }
+    };
+    static const QUMethod signal_2 = {"newFont", 1, param_signal_2 };
+    static const QUParameter param_signal_3[] = {
+	{ 0, &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod signal_3 = {"newMode", 1, param_signal_3 };
+    static const QMetaData signal_tbl[] = {
+	{ "newMatrix(QWMatrix)", &signal_0, QMetaData::Public },
+	{ "newText(const QString&)", &signal_1, QMetaData::Public },
+	{ "newFont(const QFont&)", &signal_2, QMetaData::Public },
+	{ "newMode(int)", &signal_3, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"XFormControl", parentObject,
+	slot_tbl, 6,
+	signal_tbl, 4,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_XFormControl.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* XFormControl::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "XFormControl" ) )
+	return this;
+    if ( !qstrcmp( clname, "ModeNames" ) )
+	return (ModeNames*)this;
+    return QVBox::qt_cast( clname );
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL newMatrix
+void XFormControl::newMatrix( QWMatrix t0 )
+{
+    if ( signalsBlocked() )
+	return;
+    QConnectionList *clist = receivers( staticMetaObject()->signalOffset() + 0 );
+    if ( !clist )
+	return;
+    QUObject o[2];
+    static_QUType_ptr.set(o+1,&t0);
+    activate_signal( clist, o );
+}
+
+// SIGNAL newText
+void XFormControl::newText( const QString& t0 )
+{
+    activate_signal( staticMetaObject()->signalOffset() + 1, t0 );
+}
+
+// SIGNAL newFont
+void XFormControl::newFont( const QFont& t0 )
+{
+    if ( signalsBlocked() )
+	return;
+    QConnectionList *clist = receivers( staticMetaObject()->signalOffset() + 2 );
+    if ( !clist )
+	return;
+    QUObject o[2];
+    static_QUType_varptr.set(o+1,&t0);
+    activate_signal( clist, o );
+}
+
+// SIGNAL newMode
+void XFormControl::newMode( int t0 )
+{
+    activate_signal( staticMetaObject()->signalOffset() + 3, t0 );
+}
+
+bool XFormControl::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: newMtx(); break;
+    case 1: newTxt((const QString&)static_QUType_QString.get(_o+1)); break;
+    case 2: selectFont(); break;
+    case 3: fontSelected((const QFont&)*((const QFont*)static_QUType_ptr.get(_o+1))); break;
+    case 4: changeMode((int)static_QUType_int.get(_o+1)); break;
+    case 5: timerEvent((QTimerEvent*)static_QUType_ptr.get(_o+1)); break;
+    default:
+	return QVBox::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool XFormControl::qt_emit( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->signalOffset() ) {
+    case 0: newMatrix((QWMatrix)(*((QWMatrix*)static_QUType_ptr.get(_o+1)))); break;
+    case 1: newText((const QString&)static_QUType_QString.get(_o+1)); break;
+    case 2: newFont((const QFont&)*((const QFont*)static_QUType_ptr.get(_o+1))); break;
+    case 3: newMode((int)static_QUType_int.get(_o+1)); break;
+    default:
+	return QVBox::qt_emit(_id,_o);
+    }
+    return TRUE;
+}
+#ifndef QT_NO_PROPERTIES
+
+bool XFormControl::qt_property( int id, int f, QVariant* v)
+{
+    return QVBox::qt_property( id, f, v);
+}
+
+bool XFormControl::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES
+
+
+const char *ShowXForm::className() const
+{
+    return "ShowXForm";
+}
+
+QMetaObject *ShowXForm::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_ShowXForm( "ShowXForm", &ShowXForm::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString ShowXForm::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "ShowXForm", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString ShowXForm::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "ShowXForm", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* ShowXForm::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QWidget::staticMetaObject();
+    static const QUParameter param_slot_0[] = {
+	{ 0, &static_QUType_QString, 0, QUParameter::In }
+    };
+    static const QUMethod slot_0 = {"setText", 1, param_slot_0 };
+    static const QUParameter param_slot_1[] = {
+	{ 0, &static_QUType_ptr, "QWMatrix", QUParameter::In }
+    };
+    static const QUMethod slot_1 = {"setMatrix", 1, param_slot_1 };
+    static const QUParameter param_slot_2[] = {
+	{ "f", &static_QUType_varptr, "\x05", QUParameter::In }
+    };
+    static const QUMethod slot_2 = {"setFont", 1, param_slot_2 };
+    static const QUParameter param_slot_3[] = {
+	{ 0, &static_QUType_varptr, "\x06", QUParameter::In }
+    };
+    static const QUMethod slot_3 = {"setPixmap", 1, param_slot_3 };
+    static const QUParameter param_slot_4[] = {
+	{ 0, &static_QUType_ptr, "QPicture", QUParameter::In }
+    };
+    static const QUMethod slot_4 = {"setPicture", 1, param_slot_4 };
+    static const QUParameter param_slot_5[] = {
+	{ 0, &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_5 = {"setMode", 1, param_slot_5 };
+    static const QMetaData slot_tbl[] = {
+	{ "setText(const QString&)", &slot_0, QMetaData::Public },
+	{ "setMatrix(QWMatrix)", &slot_1, QMetaData::Public },
+	{ "setFont(const QFont&)", &slot_2, QMetaData::Public },
+	{ "setPixmap(QPixmap)", &slot_3, QMetaData::Public },
+	{ "setPicture(const QPicture&)", &slot_4, QMetaData::Public },
+	{ "setMode(int)", &slot_5, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"ShowXForm", parentObject,
+	slot_tbl, 6,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_ShowXForm.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* ShowXForm::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "ShowXForm" ) )
+	return this;
+    if ( !qstrcmp( clname, "ModeNames" ) )
+	return (ModeNames*)this;
+    return QWidget::qt_cast( clname );
+}
+
+bool ShowXForm::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: setText((const QString&)static_QUType_QString.get(_o+1)); break;
+    case 1: setMatrix((QWMatrix)(*((QWMatrix*)static_QUType_ptr.get(_o+1)))); break;
+    case 2: setFont((const QFont&)*((const QFont*)static_QUType_ptr.get(_o+1))); break;
+    case 3: setPixmap((QPixmap)(*((QPixmap*)static_QUType_ptr.get(_o+1)))); break;
+    case 4: setPicture((const QPicture&)*((const QPicture*)static_QUType_ptr.get(_o+1))); break;
+    case 5: setMode((int)static_QUType_int.get(_o+1)); break;
+    default:
+	return QWidget::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool ShowXForm::qt_emit( int _id, QUObject* _o )
+{
+    return QWidget::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool ShowXForm::qt_property( int id, int f, QVariant* v)
+{
+    return QWidget::qt_property( id, f, v);
+}
+
+bool ShowXForm::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES
+
+
+const char *XFormCenter::className() const
+{
+    return "XFormCenter";
+}
+
+QMetaObject *XFormCenter::metaObj = 0;
+static QMetaObjectCleanUp cleanUp_XFormCenter( "XFormCenter", &XFormCenter::staticMetaObject );
+
+#ifndef QT_NO_TRANSLATION
+QString XFormCenter::tr( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "XFormCenter", s, c, QApplication::DefaultCodec );
+    else
+	return QString::fromLatin1( s );
+}
+#ifndef QT_NO_TRANSLATION_UTF8
+QString XFormCenter::trUtf8( const char *s, const char *c )
+{
+    if ( qApp )
+	return qApp->translate( "XFormCenter", s, c, QApplication::UnicodeUTF8 );
+    else
+	return QString::fromUtf8( s );
+}
+#endif // QT_NO_TRANSLATION_UTF8
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* XFormCenter::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    QMetaObject* parentObject = QHBox::staticMetaObject();
+    static const QUParameter param_slot_0[] = {
+	{ "f", &static_QUType_varptr, "\x05", QUParameter::In }
+    };
+    static const QUMethod slot_0 = {"setFont", 1, param_slot_0 };
+    static const QUParameter param_slot_1[] = {
+	{ 0, &static_QUType_int, 0, QUParameter::In }
+    };
+    static const QUMethod slot_1 = {"newMode", 1, param_slot_1 };
+    static const QMetaData slot_tbl[] = {
+	{ "setFont(const QFont&)", &slot_0, QMetaData::Public },
+	{ "newMode(int)", &slot_1, QMetaData::Public }
+    };
+    metaObj = QMetaObject::new_metaobject(
+	"XFormCenter", parentObject,
+	slot_tbl, 2,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    cleanUp_XFormCenter.setMetaObject( metaObj );
+    return metaObj;
+}
+
+void* XFormCenter::qt_cast( const char* clname )
+{
+    if ( !qstrcmp( clname, "XFormCenter" ) )
+	return this;
+    if ( !qstrcmp( clname, "ModeNames" ) )
+	return (ModeNames*)this;
+    return QHBox::qt_cast( clname );
+}
+
+bool XFormCenter::qt_invoke( int _id, QUObject* _o )
+{
+    switch ( _id - staticMetaObject()->slotOffset() ) {
+    case 0: setFont((const QFont&)*((const QFont*)static_QUType_ptr.get(_o+1))); break;
+    case 1: newMode((int)static_QUType_int.get(_o+1)); break;
+    default:
+	return QHBox::qt_invoke( _id, _o );
+    }
+    return TRUE;
+}
+
+bool XFormCenter::qt_emit( int _id, QUObject* _o )
+{
+    return QHBox::qt_emit(_id,_o);
+}
+#ifndef QT_NO_PROPERTIES
+
+bool XFormCenter::qt_property( int id, int f, QVariant* v)
+{
+    return QHBox::qt_property( id, f, v);
+}
+
+bool XFormCenter::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }
+#endif // QT_NO_PROPERTIES

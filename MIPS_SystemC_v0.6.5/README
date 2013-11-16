@@ -1,0 +1,74 @@
+***************************************************************************
+*  MIPS_SystemC                                                           *
+*  MIPS Model in SystemC with a Graphical User Interface                  *
+*  Arquitectura de Computadores II - Universidade de Aveiro - 2007        *
+***************************************************************************
+
+### Information
+
+   MIPS_SystemC builds a SystemC model of the MIPS architecture. 
+   The architecture is similar to the one described in Henessy&Patterson92. 
+   It includes a graphical user interface that uses Qt libraries.
+
+### Version Info
+
+    MIPS_SystemC v0.6.4 (Beta Release) - 16 October, 2007
+
+### Contents
+
+    README                    This README File
+    MIPS_SystemC              precompiled simulator using shared libs
+    *.cpp *.h                 SystemC MIPS model
+    GUI/*.cpp GUI/*.h         User Interface source files
+    refman.pdf                Documentation
+
+### Operating System and Compiler
+
+    The binaries were compiled with gcc/g++ - Gnu Project C/C++ Compiler
+    (gcc version 2.95.3 19991030 prerelease) using the Qt libraries 
+    (release 2.2.4) on Mandrake Linux 7.2, release 2.2.17-21mdk.
+	
+    It is required to have the Qt libraries release 2.2.4 (or later) 
+    installed in the system prior to compilation. 
+
+    It is required to have the SystemC release 2.0.1 
+    installed in the system prior to compilation.
+
+    More information on Qt can be found at http://www.trolltech.com
+    More information on SystemC can be found at http://www.systemc.org
+
+### Instructions 
+
+    1- define QTDIR:
+
+         for example:
+         export QTDIR=/usr/lib/qt2
+	
+    2- define SYSTEMC:
+
+         for example:
+         export SYSTEMC=/usr/local/systemc-2.0.1
+
+    3- compile:
+
+         make
+
+    4- run 
+
+         MIPS_SystemC
+
+
+### References
+
+     Henessy&Patterson92
+         Computer Organization and Design, David Patterson and John Henessy
+         Morgan Kaufmann, 1992   
+
+     SystemC
+         http://www.systemc.org
+
+     Qt
+         http://www.trolltech.com
+
+Copyright (c) 2007  - Universidade de Aveiro
+

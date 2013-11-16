@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ "$#" -gt 0 ]; then
+  echo yes | /home/smrcascao/Transferências/qt-x11-free-3.3.8/configure  "$@"
+else
+  echo yes | /home/smrcascao/Transferências/qt-x11-free-3.3.8/configure 
+fi
