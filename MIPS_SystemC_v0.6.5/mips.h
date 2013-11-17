@@ -104,7 +104,8 @@ SC_MODULE(mips) {
 
    //ID
    sc_signal < sc_uint<32> > inst_id,   // current instruction ID phase
-                             PC4_id;
+                             PC4_id,
+                             PC_id;     // PC of instruction in ID
    sc_signal < bool > regdata_equal;
 
    // instruction fields
@@ -138,7 +139,6 @@ SC_MODULE(mips) {
 
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
-   sc_signal < sc_uint<32> > PC_id;      // PC of instruction in ID
    sc_signal < bool >        valid_id;   // true if there is an instruction in ID
 
    //EXE

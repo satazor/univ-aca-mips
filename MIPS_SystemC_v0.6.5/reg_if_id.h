@@ -25,10 +25,10 @@ SC_MODULE(reg_if_id_t) {
 
     sc_in  < sc_uint<32> > inst_if, PC4_if;
     sc_out < sc_uint<32> > inst_id, PC4_id;
+    sc_out < sc_uint<32> > PC_id;
 
     sc_in  < sc_uint<32> > PC_if;     // only for visualization purposes
     sc_in  < bool >        valid_if;  // only for visualization purposes
-    sc_out < sc_uint<32> > PC_id;     // only for visualization purposes
     sc_out < bool >        valid_id;  // only for visualization purposes
 
     // Modules

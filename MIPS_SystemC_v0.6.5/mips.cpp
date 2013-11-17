@@ -112,7 +112,7 @@ void mips::buildID(void)
       // Adds Branch Immediate to Program Counter + 4
       addbr = new add ("addbr");
 
-      addbr->op1(PC4);
+      addbr->op1(PC4_id);
       addbr->op2(addr_ext);
       addbr->res(BranchTarget);
 
@@ -125,7 +125,7 @@ void mips::buildID(void)
 
       //>> Exercise 2
       jtc = new jump_target_calc("jtc");
-      jtc->PC(PC);
+      jtc->PC_id(PC_id);
       jtc->imm_j(imm_j);
       jtc->res(JumpTarget);
 }
