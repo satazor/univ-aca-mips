@@ -188,7 +188,7 @@ MIPSarchCanvas::MIPSarchCanvas(mips &m, QObject *parent) : QCanvas(parent), mips
 
 
     portVal=new PortValItem(this,mips1.dec1->rd, "rd");
-    portVal->move(342,425);
+    portVal->move(320,416);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
@@ -203,22 +203,22 @@ MIPSarchCanvas::MIPSarchCanvas(mips &m, QObject *parent) : QCanvas(parent), mips
     portValVec.push_back(portVal);
 
     portVal=new PortValItem(this,mips1.rfile->reg1, "r1");
-    portVal->move(342,389);
+    portVal->move(320,389);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
     portVal=new PortValItem(this,mips1.rfile->reg2, "r2");
-    portVal->move(342,404);
+    portVal->move(320,404);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
     portVal=new PortValItem(this,mips1.rfile->data1, "r1_out");
-    portVal->move(450,389);
+    portVal->move(454,389);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
     portVal=new PortValItem(this,mips1.rfile->data2, "r2_out");
-    portVal->move(450,404);
+    portVal->move(454,404);
     portVal->setColor(QColor("blue"));
     portValVec.push_back(portVal);
 
