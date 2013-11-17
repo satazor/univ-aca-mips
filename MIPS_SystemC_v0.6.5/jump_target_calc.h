@@ -20,7 +20,7 @@
 
 SC_MODULE(jump_target_calc) {
 
-  sc_in< sc_uint<26> >  imm_j;
+  sc_in< sc_uint<26> > imm_j;
   sc_in< sc_uint<32> > PC_id;
   sc_out< sc_uint<32> > res;
 
