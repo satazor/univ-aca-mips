@@ -94,16 +94,16 @@ SC_MODULE(mips) {
    // Signals
 
    // IF
-   sc_signal < sc_uint<32> > PC,       // Program Counter
-                             NPC,      // Next Program Counter
+   sc_signal < sc_uint<32> > PC,        // Program Counter
+                             NPC,       // Next Program Counter
                  PC4;      // PC + 4
-   sc_signal < sc_uint<32> > inst;     // current instruction
+   sc_signal < sc_uint<32> > inst;      // current instruction
    sc_signal <bool> enable_pc;
 
    sc_signal <bool> enable_ifid;
 
    //ID
-   sc_signal < sc_uint<32> > inst_id,  // current instruction ID phase
+   sc_signal < sc_uint<32> > inst_id,   // current instruction ID phase
                              PC4_id;
    sc_signal < bool > regdata_equal;
 
@@ -115,17 +115,17 @@ SC_MODULE(mips) {
    sc_signal < sc_uint<5> > shamt;
    sc_signal < sc_uint<6> > funct;
    // register file signals
-   sc_signal < sc_uint<5> > WriteReg;  // register to write
+   sc_signal < sc_uint<5> > WriteReg;   // register to write
 
-   sc_signal < sc_uint<32> > regdata1, // value of register rs
-                             regdata2, // value of regiter rt
-                 WriteVal; // value to write in register WriteReg
+   sc_signal < sc_uint<32> > regdata1,  // value of register rs
+                             regdata2,  // value of register rt
+                             WriteVal;  // value to write in register WriteReg
 
-   sc_signal < sc_uint<32> > imm_ext;  // imm sign extended
+   sc_signal < sc_uint<32> > imm_ext;   // imm sign extended
 
-   sc_signal < sc_uint<32> > rega_exe, // value of register rs EXE phase
-                             regb_exe, // value of regiter rt EXE phase
-                             regb_mem1; // value of regiter rt MEM phase
+   sc_signal < sc_uint<32> > rega_exe,  // value of register rs EXE phase
+                             regb_exe,  // value of register rt EXE phase
+                             regb_mem1; // value of register rt MEM phase
 
    sc_signal <bool> reset_haz_idexe, reset_idexe;
    sc_signal <bool> reset_haz_ifid, reset_ifid;
@@ -142,13 +142,13 @@ SC_MODULE(mips) {
    sc_signal < bool >        valid_id;   // true if there is an instruction in ID
 
    //EXE
-   sc_signal < bool > Zero;            // ALU output is zero
+   sc_signal < bool > Zero;              // ALU output is zero
    sc_signal < sc_uint<32> > imm_exe;
-   sc_signal < sc_uint<32> > addr_ext; // imm_ext shift left 2
+   sc_signal < sc_uint<32> > addr_ext;   // imm_ext shift left 2
    sc_signal < sc_uint<5> > WriteReg_exe;
    // ALU signals
-   sc_signal < sc_uint<32> > ALUIn2,   // ALU second operand
-                             ALUOut;   // ALU Output
+   sc_signal < sc_uint<32> > ALUIn2,     // ALU second operand
+                             ALUOut;     // ALU Output
    sc_signal <bool> MemRead_exe, MemWrite_exe, MemtoReg_exe;
    sc_signal <bool> RegWrite_exe;
    sc_signal <bool> ALUSrc_exe;
@@ -160,7 +160,7 @@ SC_MODULE(mips) {
    sc_signal < bool > valid_exe;         // true if there is an instruction in ID
 
    //MEM1
-   sc_signal < sc_uint<32> > MemOut;   // data memory output
+   sc_signal < sc_uint<32> > MemOut;     // data memory output
    sc_signal < sc_uint<32> > ALUOut_mem1;
    sc_signal < sc_uint<5> > WriteReg_mem1;
    sc_signal <bool> MemRead_mem1, MemWrite_mem1, MemtoReg_mem1;
@@ -195,10 +195,10 @@ SC_MODULE(mips) {
 
    //nonpipelined signals
    sc_signal < sc_uint<32> > BranchTarget; // PC if branch
-   sc_signal < sc_uint<2> > BranchTaken;  // execute branch
+   sc_signal < sc_uint<2> > BranchTaken;   // execute branch
    sc_signal < sc_uint<32> > JumpTarget;
-   sc_signal < sc_uint<32> > const4;   // contant 4
-   sc_signal < bool > const1;          // contant 4
+   sc_signal < sc_uint<32> > const4;       // contant 4
+   sc_signal < bool > const1;              // contant 4
 
    SC_CTOR(mips) {
        buildArchitecture();
