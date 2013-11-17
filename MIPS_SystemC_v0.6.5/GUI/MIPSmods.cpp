@@ -16,12 +16,12 @@
  */
 MIPSmods::MIPSmods( mips &m, QWidget* parent,  const char* name, WFlags fl )
     : QScrollView( parent, name, fl ), mips1(m)
-{   
+{
     //resize viewport
     resizeContents(820+5,194+5);
 
-    resize( QSize(820+10,194+10) ); 
-    setMaximumSize( QSize(820+10,194+10) ); 
+    resize( QSize(820+10,194+10) );
+    setMaximumSize( QSize(820+10,194+10) );
 
     setIcon(QPixmap("mips.xpm"));
 
@@ -33,7 +33,7 @@ MIPSmods::MIPSmods( mips &m, QWidget* parent,  const char* name, WFlags fl )
     imemView->addPort(mips1.instmem->addr, "PC");
     imemView->addPort(mips1.instmem->inst, "inst");
     addChild(imemView,5,5);
-    
+
     connect(this,SIGNAL(updateModules()), imemView, SLOT(redrawModule()));
 
     //ctrlview
@@ -49,7 +49,7 @@ MIPSmods::MIPSmods( mips &m, QWidget* parent,  const char* name, WFlags fl )
     ctrlView->addPort(mips1.ctrl->ALUOp,   "ALUOp");
     ctrlView->addPort(mips1.ctrl->RegWrite,"RegWrite");
     addChild(ctrlView,5+MODSTEPX*1,5);
-    
+
     connect(this,SIGNAL(updateModules()), ctrlView, SLOT(redrawModule()));
 
     //rfileview
@@ -61,7 +61,7 @@ MIPSmods::MIPSmods( mips &m, QWidget* parent,  const char* name, WFlags fl )
     rfileView->addPort(mips1.rfile->data2, "r2_out");
     rfileView->addPort(mips1.rfile->datawr, "rw_in");
     addChild(rfileView,5+MODSTEPX*2,5);
-    
+
     connect(this,SIGNAL(updateModules()), rfileView, SLOT(redrawModule()));
 
     //aluView
@@ -81,13 +81,13 @@ MIPSmods::MIPSmods( mips &m, QWidget* parent,  const char* name, WFlags fl )
     dmemView->addPort(mips1.datamem->din, "din");
     dmemView->addPort(mips1.datamem->dout, "dout");
     addChild(dmemView,5+MODSTEPX*4,5);
-    
+
     connect(this,SIGNAL(updateModules()), dmemView, SLOT(redrawModule()));
 
     setFocusPolicy(QWidget::StrongFocus);
 }
 
-/*  
+/*
  *  Destroys the object and frees any allocated resources
  */
 MIPSmods::~MIPSmods()

@@ -41,7 +41,7 @@ MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWid
 
 	mdi = new QWorkspace( this, "workspace" );
 	mdi->setBackgroundMode( PaletteDark );
-	mdi->resize(900,400);
+	mdi->resize(1100,700);
 
         //// Main menus
 	//file
@@ -200,7 +200,7 @@ MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWid
 
 	setCentralWidget( mdi );
 
-	resize(900,500);
+	resize(1100, 700);
 }
 
 /*
