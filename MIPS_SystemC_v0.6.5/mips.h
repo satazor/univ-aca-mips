@@ -31,8 +31,9 @@
 #include "regT.h"
 #include "reg_if_id.h"
 #include "reg_id_exe.h"
-#include "reg_exe_mem.h"
-#include "reg_mem_wb.h"
+#include "reg_exe_mem1.h"
+#include "reg_mem1_mem2.h"
+#include "reg_mem2_wb.h"
 
 /**
  * MIPS module.
@@ -86,8 +87,9 @@ SC_MODULE(mips) {
    //pipeline registers
    reg_if_id_t       *reg_if_id;
    reg_id_exe_t      *reg_id_exe;
-   reg_exe_mem_t     *reg_exe_mem;
-   reg_mem_wb_t      *reg_mem_wb;
+   reg_exe_mem1_t    *reg_exe_mem1;
+   reg_mem1_mem2_t   *reg_mem1_mem2;
+   reg_mem2_wb_t     *reg_mem2_wb;
 
    // Signals
 
@@ -123,7 +125,7 @@ SC_MODULE(mips) {
 
    sc_signal < sc_uint<32> > rega_exe, // value of register rs EXE phase
                              regb_exe, // value of regiter rt EXE phase
-                             regb_mem; // value of regiter rt MEM phase
+                             regb_mem1; // value of regiter rt MEM phase
 
    sc_signal <bool> reset_haz_idexe, reset_idexe;
    sc_signal <bool> reset_haz_ifid, reset_ifid;
@@ -157,17 +159,28 @@ SC_MODULE(mips) {
    sc_signal < sc_uint<32> > PC_exe;     // PC of instruction in ID
    sc_signal < bool > valid_exe;         // true if there is an instruction in ID
 
-   //MEM
+   //MEM1
    sc_signal < sc_uint<32> > MemOut;   // data memory output
-   sc_signal < sc_uint<32> > ALUOut_mem;
-   sc_signal < sc_uint<5> > WriteReg_mem;
-   sc_signal <bool> MemRead_mem, MemWrite_mem, MemtoReg_mem;
-   sc_signal <bool> RegWrite_mem;
+   sc_signal < sc_uint<32> > ALUOut_mem1;
+   sc_signal < sc_uint<5> > WriteReg_mem1;
+   sc_signal <bool> MemRead_mem1, MemWrite_mem1, MemtoReg_mem1;
+   sc_signal <bool> RegWrite_mem1;
 
    // the following two signals are not used by the architecture
    // they are used only for visualization purposes
-   sc_signal < sc_uint<32> > PC_mem;
-   sc_signal < bool > valid_mem;
+   sc_signal < sc_uint<32> > PC_mem1;
+   sc_signal < bool > valid_mem1;
+
+   //MEM2
+   sc_signal < sc_uint<32> > ALUOut_mem2;
+   sc_signal < sc_uint<5> > WriteReg_mem2;
+   sc_signal <bool> MemtoReg_mem2;
+   sc_signal <bool> RegWrite_mem2;
+
+   // the following two signals are not used by the architecture
+   // they are used only for visualization purposes
+   sc_signal < sc_uint<32> > PC_mem2;
+   sc_signal < bool > valid_mem2;
 
    //WB
    sc_signal < sc_uint<32> > MemOut_wb, ALUOut_wb;
@@ -198,7 +211,8 @@ SC_MODULE(mips) {
    void buildIF();
    void buildID();
    void buildEXE();
-   void buildMEM();
+   void buildMEM1();
+   void buildMEM2();
    void buildWB();
 };
 

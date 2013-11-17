@@ -3,7 +3,7 @@ CONFIG		+= qt thread release
 HEADERS		= mips.h\
                   imem.h decode.h regfile.h alu.h dmem.h control.h\
 		  mem32.h mux.h mux4.h reg.h branch_taken_calc.h jump_target_calc.h add.h gates.h ext.h shiftl2.h\
-		  regT.h reg_id_exe.h reg_exe_mem.h reg_mem_wb.h\
+		  regT.h reg_id_exe.h reg_exe_mem1.h reg_mem1_mem2.h reg_mem2_wb.h\
 		  hazard.h\
 		  mipsaux.h\
 		  GUI/MIPSctrl.h\
@@ -18,11 +18,11 @@ SOURCES		= main.cpp mips.cpp\
 		  mem32.cpp reg.cpp branch_taken_calc.cpp jump_target_calc.cpp add.cpp gates.cpp ext.cpp shiftl2.cpp\
 		  hazard.cpp\
 		  mipsaux.cpp\
-		  GUI/MIPSctrl.cpp\ 
+		  GUI/MIPSctrl.cpp\
 		  GUI/MIPSarch.cpp GUI/MIPSmods.cpp GUI/modview.cpp\
 		  GUI/MIPSimemview.cpp GUI/MIPSdmemview.cpp GUI/MIPSregfileview.cpp GUI/MIPSmemview.cpp\
 		  GUI/PortValItem.cpp GUI/PortValRead.cpp\
-		  
+
 INCLUDEPATH     = $(SYSTEMC)/include
 LIBS            += -L$(SYSTEMC)/lib-linux64 -L$(SYSTEMC)/lib-linux -lsystemc
 unix:TMAKE_UIC  = /usr/bin/uic

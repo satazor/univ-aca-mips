@@ -13,7 +13,7 @@ void dmem::read_mem()
         //assert(addr.read()<size() && addr.read() % 4 == 0);
         if((addr.read()<size() && addr.read() % 4 == 0))
            dout.write(memory[addr.read()/4]);
-    else dout.write(0);
+        else dout.write(0);
     }
 }
 
@@ -27,7 +27,7 @@ void dmem::write_mem()
         if((addr.read()<size() && addr.read() % 4 == 0)) {
            memory[addr.read()/4]=din.read();
            //dout.write(memory[addr.read()/4]);
-    }
+        }
     }
 }
 

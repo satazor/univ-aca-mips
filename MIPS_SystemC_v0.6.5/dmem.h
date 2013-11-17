@@ -15,13 +15,13 @@
  * Dmem module models the data memory of MIPS.
  * Synchronous on writes, assynchronous on reads.
  *   - input ports
- *       - \c sc_uint<32> \c addr   - address
- *       - \c sc_uint<32> \c din    - input data
- *       - \c bool \c wr            - write enable
- *       - \c bool \c rd            - read enable
- *       - \c bool \c clk           - clock
+ *       - \c sc_uint<32> \c addr        - address
+ *       - \c sc_uint<32> \c din         - input data
+ *       - \c bool \c wr                 - write enable
+ *       - \c bool \c rd                 - read enable
+ *       - \c bool \c clk                - clock
  *   - output ports
- *       - \c sc_uint<32> \c dout   - output data
+ *       - \c sc_uint<32> \c dout        - output data
  */
 
 class dmem :public sc_module, public mem32
@@ -39,7 +39,8 @@ class dmem :public sc_module, public mem32
   SC_CTOR(dmem)
     {
       SC_METHOD(read_mem);
-      sensitive << addr << rd;
+      //sensitive << addr << rd;
+      sensitive_pos(clk);
       SC_METHOD(write_mem);
       sensitive_pos(clk);
 

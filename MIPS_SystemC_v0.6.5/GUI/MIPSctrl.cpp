@@ -31,7 +31,7 @@
 #include "datamem.xpm"
 #include "regs.xpm"
 
-/** 
+/**
  * MIPSctrl contructor.
  */
 MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWidget* parent,  const char* name, WFlags fl )
@@ -52,7 +52,7 @@ MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWid
 	QPopupMenu *viewMenu = new QPopupMenu( this );
 	menuBar()->insertItem( "&View", viewMenu );
 
-        //windows 
+        //windows
         windowsMenu = new QPopupMenu( this );
         windowsMenu->setCheckable( TRUE );
         connect( windowsMenu, SIGNAL( aboutToShow() ),
@@ -85,16 +85,16 @@ MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWid
 	mods->setCaption( "Modules");
 
         //instruction memory
-        imemview = new MIPSimemview(*mips1.instmem, 
+        imemview = new MIPSimemview(*mips1.instmem,
 			            mips1.instmem->addr,
 			            mips1.reg_if_id->PC_id,
 			            mips1.reg_if_id->valid_id,
 			            mips1.reg_id_exe->PC_exe,
 			            mips1.reg_id_exe->valid_exe,
-			            mips1.reg_exe_mem->PC_mem,
-			            mips1.reg_exe_mem->valid_mem,
-			            mips1.reg_mem_wb->PC_wb,
-			            mips1.reg_mem_wb->valid_wb,
+			            mips1.reg_exe_mem1->PC_mem1,
+			            mips1.reg_exe_mem1->valid_mem1,
+			            mips1.reg_mem2_wb->PC_wb,
+			            mips1.reg_mem2_wb->valid_wb,
 				    mdi);
 	imemview->setCaption( "InstMem" );
 	imemview->hide();
@@ -104,7 +104,7 @@ MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWid
 	dmemview->setCaption( "DataMem" );
 	dmemview->hide();
 
-        //registers 
+        //registers
         regfileview = new MIPSregfileview(*mips1.rfile, mdi);
 	regfileview->setCaption( "RegisterFile" );
 	regfileview->hide();
@@ -203,7 +203,7 @@ MIPSctrl::MIPSctrl( sc_signal<bool> &clock, sc_signal<bool> &rset, mips &m, QWid
 	resize(900,500);
 }
 
-/*  
+/*
  *  Destroys the object and frees any allocated resources
  */
 MIPSctrl::~MIPSctrl()

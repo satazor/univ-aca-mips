@@ -154,19 +154,27 @@ void mips::buildEXE(void)
 }
 
 /**
- * buils MEM stage components
+ * buils MEM1 stage components
  */
-void mips::buildMEM(void)
+void mips::buildMEM1(void)
 {
       // Data Memory
       datamem = new dmem ("datamem");
 
-      datamem->addr(ALUOut_mem);
-      datamem->din(regb_mem);
+      datamem->addr(ALUOut_mem1);
+      datamem->din(regb_mem1);
       datamem->dout(MemOut);
-      datamem->wr(MemWrite_mem);
-      datamem->rd(MemRead_mem);
+      datamem->wr(MemWrite_mem1);
+      datamem->rd(MemRead_mem1);
       datamem->clk(clk);
+}
+
+/**
+ * buils MEM2 stage components
+ */
+void mips::buildMEM2(void)
+{
+
 }
 
 /**
@@ -253,51 +261,71 @@ void mips::buildArchitecture(void){
 
       buildEXE();
 
-      //reg_exe_mem
-      reg_exe_mem = new reg_exe_mem_t("reg_exe_mem");
-      reg_exe_mem->aluOut_exe(ALUOut);
-      reg_exe_mem->aluOut_mem(ALUOut_mem);
-      reg_exe_mem->MemRead_exe(MemRead_exe);
-      reg_exe_mem->MemRead_mem(MemRead_mem);
-      reg_exe_mem->MemWrite_exe(MemWrite_exe);
-      reg_exe_mem->MemWrite_mem(MemWrite_mem);
-      reg_exe_mem->MemtoReg_exe(MemtoReg_exe);
-      reg_exe_mem->MemtoReg_mem(MemtoReg_mem);
-      reg_exe_mem->RegWrite_exe(RegWrite_exe);
-      reg_exe_mem->RegWrite_mem(RegWrite_mem);
-      reg_exe_mem->regb_exe(regb_exe);
-      reg_exe_mem->regb_mem(regb_mem);
-      reg_exe_mem->WriteReg_exe(WriteReg_exe);
-      reg_exe_mem->WriteReg_mem(WriteReg_mem);
-      reg_exe_mem->PC_exe(PC_exe);
-      reg_exe_mem->PC_mem(PC_mem);
-      reg_exe_mem->valid_exe(valid_exe);
-      reg_exe_mem->valid_mem(valid_mem);
-      reg_exe_mem->clk(clk);
-      reg_exe_mem->reset(reset);
-      reg_exe_mem->enable(const1);
+      //reg_exe_mem1
+      reg_exe_mem1 = new reg_exe_mem1_t("reg_exe_mem1");
+      reg_exe_mem1->aluOut_exe(ALUOut);
+      reg_exe_mem1->aluOut_mem1(ALUOut_mem1);
+      reg_exe_mem1->MemRead_exe(MemRead_exe);
+      reg_exe_mem1->MemRead_mem1(MemRead_mem1);
+      reg_exe_mem1->MemWrite_exe(MemWrite_exe);
+      reg_exe_mem1->MemWrite_mem1(MemWrite_mem1);
+      reg_exe_mem1->MemtoReg_exe(MemtoReg_exe);
+      reg_exe_mem1->MemtoReg_mem1(MemtoReg_mem1);
+      reg_exe_mem1->RegWrite_exe(RegWrite_exe);
+      reg_exe_mem1->RegWrite_mem1(RegWrite_mem1);
+      reg_exe_mem1->regb_exe(regb_exe);
+      reg_exe_mem1->regb_mem1(regb_mem1);
+      reg_exe_mem1->WriteReg_exe(WriteReg_exe);
+      reg_exe_mem1->WriteReg_mem1(WriteReg_mem1);
+      reg_exe_mem1->PC_exe(PC_exe);
+      reg_exe_mem1->PC_mem1(PC_mem1);
+      reg_exe_mem1->valid_exe(valid_exe);
+      reg_exe_mem1->valid_mem1(valid_mem1);
+      reg_exe_mem1->clk(clk);
+      reg_exe_mem1->reset(reset);
+      reg_exe_mem1->enable(const1);
 
-      buildMEM();
+      buildMEM1();
 
-      //reg_mem_wb
-      reg_mem_wb = new reg_mem_wb_t("reg_mem_wb");
-      reg_mem_wb->aluOut_mem(ALUOut_mem);
-      reg_mem_wb->aluOut_wb(ALUOut_wb);
-      reg_mem_wb->memOut_mem(MemOut);
-      reg_mem_wb->memOut_wb(MemOut_wb);
-      reg_mem_wb->MemtoReg_mem(MemtoReg_mem);
-      reg_mem_wb->MemtoReg_wb(MemtoReg_wb);
-      reg_mem_wb->RegWrite_mem(RegWrite_mem);
-      reg_mem_wb->RegWrite_wb(RegWrite_wb);
-      reg_mem_wb->WriteReg_mem(WriteReg_mem);
-      reg_mem_wb->WriteReg_wb(WriteReg_wb);
-      reg_mem_wb->PC_mem(PC_mem);
-      reg_mem_wb->PC_wb(PC_wb);
-      reg_mem_wb->valid_mem(valid_mem);
-      reg_mem_wb->valid_wb(valid_wb);
-      reg_mem_wb->clk(clk);
-      reg_mem_wb->reset(reset);
-      reg_mem_wb->enable(const1);
+      //reg_mem1_mem2
+      reg_mem1_mem2 = new reg_mem1_mem2_t("reg_mem1_mem2");
+      reg_mem1_mem2->aluOut_mem1(ALUOut_mem1);
+      reg_mem1_mem2->aluOut_mem2(ALUOut_mem2);
+      reg_mem1_mem2->MemtoReg_mem1(MemtoReg_mem1);
+      reg_mem1_mem2->MemtoReg_mem2(MemtoReg_mem2);
+      reg_mem1_mem2->RegWrite_mem1(RegWrite_mem1);
+      reg_mem1_mem2->RegWrite_mem2(RegWrite_mem2);
+      reg_mem1_mem2->WriteReg_mem1(WriteReg_mem1);
+      reg_mem1_mem2->WriteReg_mem2(WriteReg_mem2);
+      reg_mem1_mem2->PC_mem1(PC_mem1);
+      reg_mem1_mem2->PC_mem2(PC_mem2);
+      reg_mem1_mem2->valid_mem1(valid_mem1);
+      reg_mem1_mem2->valid_mem2(valid_mem2);
+      reg_mem1_mem2->clk(clk);
+      reg_mem1_mem2->reset(reset);
+      reg_mem1_mem2->enable(const1);
+
+      buildMEM2();
+
+      //reg_mem2_wb
+      reg_mem2_wb = new reg_mem2_wb_t("reg_mem2_wb");
+      reg_mem2_wb->aluOut_mem2(ALUOut_mem2);
+      reg_mem2_wb->aluOut_wb(ALUOut_wb);
+      reg_mem2_wb->memOut_mem2(MemOut);
+      reg_mem2_wb->memOut_wb(MemOut_wb);
+      reg_mem2_wb->MemtoReg_mem2(MemtoReg_mem2);
+      reg_mem2_wb->MemtoReg_wb(MemtoReg_wb);
+      reg_mem2_wb->RegWrite_mem2(RegWrite_mem2);
+      reg_mem2_wb->RegWrite_wb(RegWrite_wb);
+      reg_mem2_wb->WriteReg_mem2(WriteReg_mem2);
+      reg_mem2_wb->WriteReg_wb(WriteReg_wb);
+      reg_mem2_wb->PC_mem2(PC_mem2);
+      reg_mem2_wb->PC_wb(PC_wb);
+      reg_mem2_wb->valid_mem2(valid_mem2);
+      reg_mem2_wb->valid_wb(valid_wb);
+      reg_mem2_wb->clk(clk);
+      reg_mem2_wb->reset(reset);
+      reg_mem2_wb->enable(const1);
 
       buildWB();
 
@@ -307,8 +335,10 @@ void mips::buildArchitecture(void){
       hazard_unit->BranchTaken(BranchTaken);
       hazard_unit->WriteReg_exe(WriteReg_exe);
       hazard_unit->RegWrite_exe(RegWrite_exe);
-      hazard_unit->WriteReg_mem(WriteReg_mem);
-      hazard_unit->RegWrite_mem(RegWrite_mem);
+      hazard_unit->WriteReg_mem1(WriteReg_mem1);
+      hazard_unit->RegWrite_mem1(RegWrite_mem1);
+      hazard_unit->WriteReg_mem2(WriteReg_mem2);
+      hazard_unit->RegWrite_mem2(RegWrite_mem2);
       hazard_unit->enable_pc(enable_pc);
       hazard_unit->enable_ifid(enable_ifid);
       hazard_unit->reset_idexe(reset_haz_idexe);
@@ -340,6 +370,7 @@ mips::~mips(void)
       delete or_reset_ifid;
       delete reg_if_id;
       delete reg_id_exe;
-      delete reg_exe_mem;
-      delete reg_mem_wb;
+      delete reg_exe_mem1;
+      delete reg_mem1_mem2;
+      delete reg_mem2_wb;
 }
